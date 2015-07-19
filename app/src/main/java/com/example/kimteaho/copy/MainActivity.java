@@ -42,7 +42,7 @@ public class MainActivity extends ActionBarActivity
     private static final String TAB4 = "tab4";
     private static final String TAB5 = "tab5";
 
-//ijkjklj
+//add name test
 
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.

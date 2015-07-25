@@ -1,6 +1,7 @@
 package com.example.kimteaho.copy;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -54,6 +55,9 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intentLoginActivity = new Intent(MainActivity.this,LoginActivity.class);
+        startActivity(intentLoginActivity);
 
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

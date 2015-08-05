@@ -92,7 +92,7 @@ public class LoginActivity extends ActionBarActivity {
                 String link = "http://52.68.141.174/php/testId.php?usId=";
                 link += usId;
                 link += "&usPass=";
-                link += usPwd;
+                link += usPwd;///
 
 
                 //String link = "http://52.68.141.174/php/test.php";

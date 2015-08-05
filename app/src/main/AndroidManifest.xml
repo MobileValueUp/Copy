@@ -21,6 +21,19 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".LectureActivity"
+            android:label="Lecture" >
+        </activity>
+        <activity
+            android:name=".ReceiptActivity"
+            android:label="Receipt" >
+        </activity>
+        <activity
+            android:name=".PersonalPrintActivity"
+            android:label="PPrint" >
+        </activity>
+
     </application>
 
 </manifest>

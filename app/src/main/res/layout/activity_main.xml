@@ -27,7 +27,7 @@
                     android:layout_height="fill_parent"
                     android:id="@+id/imageView2"
                     android:layout_weight="1"
-                    android:background="#ffd70013"/>
+                    android:background="#ff29b1d7"/>
 
                 <ImageView
                     android:layout_width="wrap_content"

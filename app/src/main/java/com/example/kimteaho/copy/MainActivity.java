@@ -2,6 +2,8 @@ package com.example.kimteaho.copy;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.NinePatch;
+import android.graphics.drawable.NinePatchDrawable;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -18,6 +20,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
@@ -102,10 +105,53 @@ public class MainActivity extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
+        btn1.setImageResource(R.drawable.timetable_unclicked);
+        btn2.setImageResource(R.drawable.paper_unclicked);
+        btn3.setImageResource(R.drawable.frined_unclicked);
+
+        btn1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN)
+                    btn1.setImageResource(R.drawable.timetable_clicked);
+                if (event.getAction() == MotionEvent.ACTION_UP)
+                    btn1.setImageResource(R.drawable.timetable_unclicked);
+
+                return false;
+            }
+
+        });
+
+        btn2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() ==MotionEvent.ACTION_DOWN)
+                    btn2.setImageResource(R.drawable.paper_clicked);
+                if(event.getAction() ==MotionEvent.ACTION_UP)
+                    btn2.setImageResource(R.drawable.paper_unclicked);
+
+                return false;
+
+            }
+        });
+        btn3.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+               if(event.getAction() ==MotionEvent.ACTION_DOWN)
+                   btn3.setImageResource(R.drawable.friend_clicked);
+                if(event.getAction() ==MotionEvent.ACTION_UP)
+                   btn3.setImageResource(R.drawable.frined_unclicked);
+                return false;
+
+            }
+        });
+
+
 
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn1.setImageResource(R.drawable.timetable_unclicked);
                 FragmentManager fmm = getSupportFragmentManager();
                 FragmentTransaction fra2 =fmm.beginTransaction();
                 fra2.replace(R.id.realtabcontent,fr);
@@ -116,6 +162,7 @@ public class MainActivity extends ActionBarActivity
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn2.setImageResource(R.drawable.paper_unclicked);
                 FragmentManager fmm = getSupportFragmentManager();
                 FragmentTransaction fra2 =fmm.beginTransaction();
                 fra2.replace(R.id.realtabcontent,fr2);
@@ -125,6 +172,7 @@ public class MainActivity extends ActionBarActivity
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btn3.setImageResource(R.drawable.frined_unclicked);
                 FragmentManager fmm = getSupportFragmentManager();
                 FragmentTransaction fra2 =fmm.beginTransaction();
                 fra2.replace(R.id.realtabcontent,fr3);
@@ -189,6 +237,19 @@ public class MainActivity extends ActionBarActivity
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
                 .commit();
+        if(position ==0)
+        {
+
+            Intent intent = new Intent(getApplicationContext(), UploadActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+            overridePendingTransition(0, 0);
+            // intent.putExtra("myid", myid); //값 전달
+            //  intent.putExtra("price", price);
+            startActivityForResult(intent, 1); // 값 받는방법
+        }
+
+
+
         if(position ==1)
         {
             Intent intent = new Intent(getApplicationContext(), ReceiptActivity.class);

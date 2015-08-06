@@ -72,6 +72,10 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*login activity 실행하는 부*/
+       // Intent i = new Intent(MainActivity.this,LoginActivity.class);
+       // startActivity(i);
         btn1 = (ImageView)findViewById(R.id.imageView1);
         btn2 = (ImageView)findViewById(R.id.imageView2);
         btn3 = (ImageView)findViewById(R.id.imageView3);

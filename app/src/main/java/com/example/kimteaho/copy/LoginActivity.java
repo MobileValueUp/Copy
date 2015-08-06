@@ -1,5 +1,6 @@
 package com.example.kimteaho.copy;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -20,7 +22,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 
-public class LoginActivity extends ActionBarActivity {
+public class LoginActivity extends Activity {
 
     String usId = "";
     String usPwd= "";
@@ -34,7 +36,7 @@ public class LoginActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button btnLogin = (Button)findViewById(R.id.logBtn);
+        ImageButton btnLogin = (ImageButton)findViewById(R.id.logBtn);
         edtId = (EditText)findViewById(R.id.inputId);
         edtPwd = (EditText)findViewById(R.id.inputPwd);
 
@@ -56,7 +58,7 @@ public class LoginActivity extends ActionBarActivity {
     }
 
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_login, menu);
@@ -77,7 +79,7 @@ public class LoginActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
     public class Net extends AsyncTask<String,Void,String>
     {
         protected Net()

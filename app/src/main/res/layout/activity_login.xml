@@ -1,36 +1,128 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:andorid="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.kimteaho.copy.LoginActivity">
+    tools:context="com.example.kimteaho.copy.LoginActivity"
+    android:background="#ff29b1d7">
 
-    <EditText
+
+
+
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/logBg"
+        android:src="@drawable/bg_login"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="235dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginLogo"
+        android:src="@drawable/logo_login"
+        android:layout_marginTop="117dp"
+        android:layout_marginLeft="126dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="246dp"
+        android:layout_height="37dp"
+        android:id="@+id/inputIdBg"
+        android:src="@drawable/input_login"
+        android:layout_marginTop="297dp"
+        android:layout_marginLeft="47dp"/>
+    <ImageView
+        android:layout_width="246dp"
+        android:layout_height="37dp"
+        android:id="@+id/inputPwdBg"
+        android:src="@drawable/input_login"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="47dp"/>
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="37dp"
         android:id="@+id/inputId"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="105dp"
-        android:layout_alignEnd="@+id/inputPwd" />
+        android:layout_toEndOf="@+id/textId"
+        android:layout_alignTop="@+id/inputIdBg"
+        android:layout_marginLeft="4dp"
+        android:background="@null"
+        android:fontFamily="나눔바른Regular"
+        android:textSize="10sp"/>
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="37dp"
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/inputPwd"
-        android:layout_below="@+id/inputId"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp" />
-
-    <Button
+        android:layout_toEndOf="@+id/textPwd"
+        android:layout_alignTop="@+id/inputPwdBg"
+        android:layout_marginLeft="4dp"
+        android:background="@null"
+        android:fontFamily="나눔바른Regular"
+        android:textSize="10sp"/>
+    
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in"
+        android:id="@+id/textId"
+        android:layout_marginTop="297dp"
+        android:layout_marginLeft="47dp"
+        android:paddingTop="13dp"
+        android:paddingLeft="15dp"
+        android:text="아이디"
+        android:fontFamily="나눔바른펜Regular"
+        android:textSize="10sp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textPwd"
+        android:layout_marginTop="340dp"
+        android:layout_marginLeft="47dp"
+        android:paddingTop="13dp"
+        android:paddingLeft="15dp"
+        android:text="비밀번호"
+        android:fontFamily="나눔바른펜Regular"
+        android:textSize="10sp"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/logBtn"
-        android:layout_below="@+id/inputPwd"
-        android:layout_alignEnd="@+id/inputPwd"
-        android:layout_marginTop="70dp" />
+        android:layout_marginTop="385dp"
+        android:layout_marginLeft="247dp"
+        android:padding="0dp"
+        android:src="@drawable/btn_login"
+        android:background="@null"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/findIdBtn"
+        android:layout_marginTop="443dp"
+        android:layout_marginLeft="247dp"
+        android:padding="0dp"
+        android:src="@drawable/btn_find_id"
+        android:background="@null"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/signUpBtn"
+        android:layout_marginTop="443dp"
+        android:layout_marginLeft="200dp"
+        android:padding="0dp"
+        android:src="@drawable/btn_signup"
+        android:background="@null"/>
 
 </RelativeLayout>

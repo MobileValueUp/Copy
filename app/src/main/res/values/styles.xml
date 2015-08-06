@@ -2,6 +2,13 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
+       <item name="colorPrimary">#ff29b1d7</item>
+       <item name="colorPrimaryDark">#ff29b1d7</item>
+       <item name="colorAccent">#ff29b1d7</item>
+       <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBarOverlay">true</item>
+
         <!-- Customize your theme here. -->
     </style>
 

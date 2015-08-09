@@ -1,6 +1,8 @@
 package com.example.kimteaho.copy;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -20,6 +23,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLEncoder;
 
 
 public class LoginActivity extends Activity {
@@ -36,9 +40,19 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        TextView txt_login= (TextView)findViewById(R.id.textId);
+        TextView txt_pwd= (TextView)findViewById(R.id.textPwd);
         ImageButton btnLogin = (ImageButton)findViewById(R.id.logBtn);
+        ImageButton btnSignup = (ImageButton)findViewById(R.id.signUpBtn);
         edtId = (EditText)findViewById(R.id.inputId);
         edtPwd = (EditText)findViewById(R.id.inputPwd);
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"NanumBarunpenR.ttf");
+
+        edtId.setTypeface(typeface);
+        edtPwd.setTypeface(typeface);
+        txt_login.setTypeface(typeface);
+        txt_pwd.setTypeface(typeface);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +66,14 @@ public class LoginActivity extends Activity {
                 net.execute();
 
 
+            }
+        });
+
+        btnSignup.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(LoginActivity.this,SignupActivity.class);
+                startActivity(i);
             }
         });
 

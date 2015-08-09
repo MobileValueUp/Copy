@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.net.MalformedURLException;
+import java.net.URLEncoder;
 
 
 public class UploadActivity extends ActionBarActivity {
@@ -69,7 +70,7 @@ public class UploadActivity extends ActionBarActivity {
             }
         });
 
-        upLoadServerUri = "http://52.68.141.174/php/upload.php";//서버컴퓨터의 ip주소
+        upLoadServerUri = "http://52.68.141.174/php/upload.php?filename=";//서버컴퓨터의 ip주소
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,12 +118,15 @@ public class UploadActivity extends ActionBarActivity {
         switch (requestCode) {
             case SELECT_IMAGE:
                 if (resultCode == RESULT_OK) {
-                    FilePath = data.getData().getPath();
-                    //Filename = data.getData().getLastPathSegment();
+                    //FilePath = data.getData().getPath();
+
                     //Filename = data.
-                    Filename = getAbsolutePathFromUri(this,data.getData());
+                    Filename = getAbsoluteNameFromUri(this,data.getData());
+                    FilePath = getAbsolutePathFromUri(this,data.getData());
                     //String A = getAbsolutePathFromUri(data.getData().getEncodedPath(),Uri.parse(FilePath));
                     //String B = A.getPath();
+                    //Filename = data.getData().getPath();
+
 
                     in.setText(FilePath);
                     out.setText(Filename);
@@ -142,9 +146,12 @@ public class UploadActivity extends ActionBarActivity {
     private void doSelectFile()
     {
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+
        // Intent i = new Intent(Intent.ACTION_PICK);
-        i.setType("file/*");
         i.addCategory(Intent.CATEGORY_OPENABLE);
+        i.setType("file/*");                                    // i.setType("*/*") 으로 했을시에 기본프로그램으로 선택이 되지만
+                                                                // 경로가 절대경로가 아니고 상대경로이고 이 것을 정확히
+        //i.addCategory(Intent.CATEGORY_OPENABLE);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         try
         {
@@ -170,11 +177,28 @@ public class UploadActivity extends ActionBarActivity {
     public static String getAbsolutePathFromUri(Context context, Uri uri) {
         Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
         cursor.moveToFirst();
+
         String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
+        //Filename = cursor.getColumnName(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
         Log.d("path", path);
 
         return path;
     }
+    public static String getAbsoluteNameFromUri(Context context, Uri uri) {
+        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+
+        String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
+
+        int length = path.length();
+        int a = path.lastIndexOf("/");
+        path = path.substring(a+1);
+        //Filename =
+        Log.d("path", path);
+
+        return path;
+    }
+
     public String getPath(Uri uri) {
         String[] projection = {MediaStore.Files.FileColumns.DATA};
         Cursor cursor = managedQuery(uri, projection, null, null, null);
@@ -226,7 +250,10 @@ public class UploadActivity extends ActionBarActivity {
 
                 // open a URL connection to the Servlet
                 FileInputStream fileInputStream = new FileInputStream(sourceFile);
-                URL url = new URL(upLoadServerUri);
+                Filename = URLEncoder.encode(Filename,"UTF-8");
+
+                URL url = new URL(upLoadServerUri + Filename);
+                //url = new URL(uploadFileName);
 
                 // Open a HTTP  connection to  the URL
                 conn = (HttpURLConnection) url.openConnection();

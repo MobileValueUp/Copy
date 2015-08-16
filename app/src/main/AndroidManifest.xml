@@ -48,6 +48,19 @@
             android:name=".SignupActivity"
             android:label="@string/title_activity_signup" >
         </activity>
+        <activity
+            android:name=".FileViewActivity"
+            android:label="@string/title_activity_file_view" >
+        </activity>
+        <activity
+            android:name=".AddLectureActivity"
+            android:label="@string/title_activity_add_lecture"
+            android:theme="@style/testTheme" >
+        </activity>
+        <activity
+            android:name=".AddLecture2Activity"
+            android:label="@string/title_activity_add_lecture2" >
+        </activity>
     </application>
 
 </manifest>

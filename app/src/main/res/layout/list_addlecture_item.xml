@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="72dp"
+        android:id="@+id/bg_addLecture_list_item"
+        android:background="@drawable/bg_signup"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_addLecture_subn"
+        android:layout_alignTop="@+id/bg_addLecture_list_item"
+        android:layout_marginTop="14dp"
+        android:layout_alignLeft="@+id/bg_addLecture_list_item"
+        android:layout_marginLeft="20dp"
+        android:textSize="18sp"
+        android:textColor="#686868"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_glasses_addLecture"
+        android:background="@drawable/list_professor"
+        android:layout_below="@id/txt_addLecture_subn"
+        android:layout_marginTop="14dp"
+        android:layout_alignLeft="@id/txt_addLecture_subn"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_addLecture_prof"
+        android:textSize="12dp"
+        android:textColor="#818181"
+        android:layout_toEndOf="@id/img_glasses_addLecture"
+        android:layout_marginLeft="4dp"
+        android:layout_alignTop="@id/img_glasses_addLecture"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_time_addLecture"
+        android:background="@drawable/list_classtime"
+        android:layout_below="@id/txt_addLecture_subn"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@id/txt_addLecture_prof"
+        android:layout_marginLeft="4dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_addLecture_time"
+        android:textSize="12dp"
+        android:textColor="#818181"
+        android:layout_toEndOf="@id/img_time_addLecture"
+        android:layout_marginLeft="4dp"
+        android:layout_alignTop="@id/img_glasses_addLecture"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_number_addLecture"
+        android:background="@drawable/number"
+        android:layout_below="@id/txt_addLecture_subn"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@id/txt_addLecture_time"
+        android:layout_marginLeft="4dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_addLecture_number"
+        android:textSize="12dp"
+        android:textColor="#818181"
+        android:layout_toEndOf="@id/img_number_addLecture"
+        android:layout_marginLeft="4dp"
+        android:layout_alignTop="@id/img_glasses_addLecture"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_addLecture_select"
+        android:src="@drawable/uncheck_signup"
+        android:layout_alignBottom="@id/bg_addLecture_list_item"
+        android:layout_alignRight="@id/bg_addLecture_list_item"
+        android:background="@null"/>
+
+</RelativeLayout>

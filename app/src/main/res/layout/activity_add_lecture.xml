@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:background="#f7f6f3"
+    tools:context="com.example.kimteaho.copy.AddLectureActivity">
+
+
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdg_add_lecture_1"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_search_subn"
+            android:checked="true"
+            android:button="@drawable/selcetor_search_subn"
+            android:background="@null"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_search_prof"
+            android:checked="false"
+            android:button="@drawable/selcetor_search_prof"
+            android:background="@null"/>
+        </RadioGroup>
+
+    <ImageView
+        android:layout_width="294dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/bg_addLecture_search"
+        android:background="@drawable/bg_signup"
+        android:layout_alignLeft="@+id/rdg_add_lecture_1"
+        android:layout_below="@+id/rdg_add_lecture_1"
+        android:layout_marginTop="10dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_addLecture_search"
+        android:background="@drawable/searchicon_signup"
+        android:layout_toEndOf="@+id/bg_addLecture_search"
+        android:layout_below="@+id/rdg_add_lecture_1"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:layout_width="254dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_addlecture"
+        android:textColor="#6a6868"
+        android:textSize="16sp"
+        android:layout_alignLeft="@id/bg_addLecture_search"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop= "@id/bg_addLecture_search"
+        android:layout_marginTop="16dp"
+        android:background="@null"/>
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/list_addLecture_search"
+        android:layout_below="@+id/bg_addLecture_search"
+        android:layout_marginTop="24dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:divider="#00000000"
+        android:dividerHeight="6dp">
+
+    </ListView>
+
+</RelativeLayout>

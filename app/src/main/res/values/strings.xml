@@ -15,4 +15,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_signup">SignupActivity</string>
+    <string name="title_activity_file_view">Copy</string>
+    <string name="title_activity_add_lecture">AddLectureActivity</string>
+    <string name="title_activity_add_lecture2">AddLecture2Activity</string>
 </resources>

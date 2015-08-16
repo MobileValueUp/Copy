@@ -54,6 +54,7 @@ public class MainActivity extends ActionBarActivity
     ImageView btn3;
 
 
+    String usId="23";
 
 
     private static final String TAB1 = "tab1";
@@ -81,8 +82,8 @@ public class MainActivity extends ActionBarActivity
         btn2 = (ImageView)findViewById(R.id.imageView2);
         btn3 = (ImageView)findViewById(R.id.imageView3);
 
-        Intent intentLoginActivity = new Intent(MainActivity.this,LoginActivity.class);
-        startActivity(intentLoginActivity);
+        /*Intent intentLoginActivity = new Intent(MainActivity.this,LoginActivity.class);
+        startActivity(intentLoginActivity);*/
 
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -226,6 +227,10 @@ public class MainActivity extends ActionBarActivity
        // tabHost.addTab(tabHost.newTabSpec(TAB5).setIndicator("TAB5"), FragmentFive.class ,null);
 
 
+        FragmentManager fmm = getSupportFragmentManager();
+        FragmentTransaction fra2 =fmm.beginTransaction();
+        fra2.replace(R.id.realtabcontent,fr);
+        fra2.commit();
     }
 
     @Override
@@ -237,13 +242,13 @@ public class MainActivity extends ActionBarActivity
                 .commit();
         if(position ==0)
         {
-
+/*
             Intent intent = new Intent(getApplicationContext(), UploadActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
             overridePendingTransition(0, 0);
-            // intent.putExtra("myid", myid); //값 전달
-            //  intent.putExtra("price", price);
-            startActivityForResult(intent, 1); // 값 받는방법
+             //intent.putExtra("myid", myid); //값 전달
+             // intent.putExtra("price", price);
+            startActivityForResult(intent, 1); // 값 받는방법*/
         }
 
 
@@ -266,11 +271,10 @@ public class MainActivity extends ActionBarActivity
 
     }
 
-    public void onSectionAttached(int number) {
+   /* public void onSectionAttached(int number) {
         switch (number) {
             case 1:
                 mTitle = getString(R.string.title_section1);
-                Toast.makeText(getApplicationContext(),"asd",Toast.LENGTH_SHORT).show();
                 break;
             case 2:
                 mTitle = getString(R.string.title_section2);
@@ -279,7 +283,7 @@ public class MainActivity extends ActionBarActivity
                 mTitle = getString(R.string.title_section3);
                 break;
         }
-    }
+    }*/
 
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
@@ -289,7 +293,7 @@ public class MainActivity extends ActionBarActivity
     }
 
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
@@ -333,7 +337,7 @@ public class MainActivity extends ActionBarActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {
@@ -428,12 +432,12 @@ public class MainActivity extends ActionBarActivity
             return rootView;
         }
 
-        @Override
+       /* @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
-        }
+        }*/
     }
 
 

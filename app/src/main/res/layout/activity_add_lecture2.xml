@@ -1,0 +1,432 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
+    android:background="#f7f6f3"
+    tools:context="com.example.kimteaho.copy.AddLecture2Activity">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bg_addlecture2_profn"
+        android:background="@drawable/edttext_signup"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="10dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bg_addlecture2_subn"
+        android:background="@drawable/edttext_signup"
+        android:layout_below="@+id/bg_addlecture2_profn"
+        android:layout_marginLeft="10dp"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bg_addlecture2_subcode"
+        android:background="@drawable/edttext_signup"
+        android:layout_below="@+id/bg_addlecture2_subn"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_addlecture2_profn"
+        android:layout_alignTop="@+id/bg_addlecture2_profn"
+        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@+id/bg_addlecture2_profn"
+        android:text="교수명:"
+        android:textSize="14sp"
+        android:textColor="#6a6868"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_addlecture2_subn"
+        android:layout_alignTop="@+id/bg_addlecture2_subn"
+        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@+id/bg_addlecture2_profn"
+        android:text="과목명:"
+        android:textSize="14sp"
+        android:textColor="#6a6868"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_addlecture2_subcode"
+        android:layout_alignTop="@+id/bg_addlecture2_subcode"
+        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@+id/bg_addlecture2_profn"
+        android:text="학정번호:"
+        android:textSize="14sp"
+        android:textColor="#6a6868"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_addlecture2_profn"
+        android:layout_alignTop="@+id/bg_addlecture2_profn"
+        android:layout_marginTop="22dp"
+        android:layout_toEndOf="@+id/txt_addlecture2_profn"
+        android:layout_marginLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@null"
+        android:textSize="16sp"
+        android:textColor="#ff863e"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_addlecture2_subn"
+        android:layout_alignTop="@+id/bg_addlecture2_subn"
+        android:layout_marginTop="22dp"
+        android:layout_toEndOf="@+id/txt_addlecture2_subn"
+        android:layout_marginLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@null"
+        android:textSize="16sp"
+        android:textColor="#ff863e"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_addlecture2_subcode"
+        android:layout_alignTop="@+id/bg_addlecture2_subcode"
+        android:layout_marginTop="22dp"
+        android:layout_toEndOf="@+id/txt_addlecture2_subcode"
+        android:layout_marginLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@null"
+        android:textSize="16sp"
+        android:textColor="#ff863e"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_addlecture2_subcode_help"
+        android:layout_alignTop="@+id/bg_addlecture2_subcode"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@+id/txt_addlecture2_subcode"
+        android:layout_marginLeft="10dp"
+        android:text="~없이 입력하세요"
+        android:textSize="14sp"
+        android:textColor="#8a8a8a"/>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdg_add_lecture_2"
+        android:layout_below="@+id/bg_addlecture2_subcode"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="90dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_mon1"
+            android:button="@drawable/selcetor_mon"
+            android:checked="true"
+            android:background="@null"
+            android:tag="MON"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_tue1"
+            android:button="@drawable/selcetor_tue"
+            android:checked="false"
+            android:background="@null"
+            android:tag="TUE"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_wed1"
+            android:button="@drawable/selcetor_wed"
+            android:checked="false"
+            android:background="@null"
+            android:tag="WED"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_thu1"
+            android:button="@drawable/selcetor_thu"
+            android:checked="false"
+            android:background="@null"
+            android:tag="THU"/>
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_fri1"
+            android:button="@drawable/selcetor_fri"
+            android:checked="false"
+            android:background="@null"
+            android:tag="FRI"/>
+
+
+
+
+        </RadioGroup>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdg_add_lecture_3"
+        android:orientation="horizontal"
+        android:layout_below="@+id/rdg_add_lecture_2"
+        android:layout_marginLeft="18dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_one_1"
+            android:button="@drawable/selcetor_1"
+            android:checked="true"
+            android:background="@null"
+            android:tag="1"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_two_1"
+            android:button="@drawable/selcetor_2"
+            android:checked="false"
+            android:background="@null"
+            android:tag="2"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_thr_1"
+            android:button="@drawable/selcetor_3"
+            android:checked="false"
+            android:background="@null"
+            android:tag="3"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_four_1"
+            android:button="@drawable/selcetor_4"
+            android:checked="false"
+            android:background="@null"
+            android:tag="4"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_fiv_1"
+            android:button="@drawable/selcetor_5"
+            android:checked="false"
+            android:background="@null"
+            android:tag="5"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_six_1"
+            android:button="@drawable/selcetor_6"
+            android:checked="false"
+            android:background="@null"
+            android:tag="6"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_sev_1"
+            android:button="@drawable/selcetor_7"
+            android:checked="false"
+            android:background="@null"
+            android:tag="7"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_ehgt_1"
+            android:button="@drawable/selcetor_8"
+            android:checked="false"
+            android:background="@null"
+            android:tag="8"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_nin_1"
+            android:button="@drawable/selcetor_9"
+            android:checked="false"
+            android:background="@null"
+            android:tag="9"/>
+
+
+        </RadioGroup>
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdg_add_lecture_4"
+        android:layout_below="@+id/rdg_add_lecture_3"
+        android:layout_marginLeft="90dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_mon2"
+            android:button="@drawable/selcetor_mon"
+            android:checked="true"
+            android:background="@null"
+            android:tag="MON"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_tue2"
+            android:button="@drawable/selcetor_tue"
+            android:checked="false"
+            android:background="@null"
+            android:tag="TUE"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_wed2"
+            android:button="@drawable/selcetor_wed"
+            android:checked="false"
+            android:background="@null"
+            android:tag="WED"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_thu2"
+            android:button="@drawable/selcetor_thu"
+            android:checked="false"
+            android:background="@null"
+            android:tag="THU"/>
+
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_fri2"
+            android:button="@drawable/selcetor_fri"
+            android:checked="false"
+            android:background="@null"
+            android:tag="FRI"/>
+
+
+
+
+    </RadioGroup>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdg_add_lecture_5"
+        android:orientation="horizontal"
+        android:layout_below="@+id/rdg_add_lecture_4"
+        android:layout_marginLeft="18dp">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_one_2"
+            android:button="@drawable/selcetor_1"
+            android:checked="true"
+            android:background="@null"
+            android:tag="1"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_two_2"
+            android:button="@drawable/selcetor_2"
+            android:checked="false"
+            android:background="@null"
+            android:tag="2"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_thr_2"
+            android:button="@drawable/selcetor_3"
+            android:checked="false"
+            android:background="@null"
+            android:tag="3"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_four_2"
+            android:button="@drawable/selcetor_4"
+            android:checked="false"
+            android:background="@null"
+            android:tag="4"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_fiv_2"
+            android:button="@drawable/selcetor_5"
+            android:checked="false"
+            android:background="@null"
+            android:tag="5"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_six_2"
+            android:button="@drawable/selcetor_6"
+            android:checked="false"
+            android:background="@null"
+            android:tag="6"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_sev_2"
+            android:button="@drawable/selcetor_7"
+            android:checked="false"
+            android:background="@null"
+            android:tag="7"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_ehgt_2"
+            android:button="@drawable/selcetor_8"
+            android:checked="false"
+            android:background="@null"
+            android:tag="8"/>
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radio_nin_2"
+            android:button="@drawable/selcetor_9"
+            android:checked="false"
+            android:background="@null"
+            android:tag="9"/>
+
+
+    </RadioGroup>
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_addLecture2_submit"
+        android:background="@drawable/btnadd_addclass2_unclicked"
+        android:layout_below="@+id/rdg_add_lecture_5"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="105dp"/>
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.kimteaho.copy.AddLectureActivity">
+
+
+
+    <item android:id="@+id/action_add_lecture"
+        android:icon="@drawable/btnadd_class"
+        android:title="강의 추가"
+        app:showAsAction = "ifRoom" />
+</menu>

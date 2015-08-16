@@ -12,4 +12,14 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="testTheme" parent="AppTheme">
+
+
+        <item name="logo">@drawable/btnback</item>
+        <item name="android:displayOptions">useLogo|showHome</item>
+    </style>
+
+
+
+
 </resources>

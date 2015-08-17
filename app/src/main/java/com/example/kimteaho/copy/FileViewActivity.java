@@ -1,5 +1,6 @@
 package com.example.kimteaho.copy;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
@@ -21,7 +22,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class FileViewActivity extends ActionBarActivity {
+public class FileViewActivity extends Activity {
 
     String subN;
     private String tt;
@@ -58,27 +59,6 @@ public class FileViewActivity extends ActionBarActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_file_view, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
     public class Net extends AsyncTask<String,Void,String> {
@@ -114,7 +94,7 @@ public class FileViewActivity extends ActionBarActivity {
 
             for (int i = 0; i < arrayList_path.size(); i++) {
 
-                adapterFile.add(arrayList_path.get(i), arrayList_filecode.get(i));
+                adapterFile.add(arrayList_path.get(i), arrayList_filecode.get(i),arrayList_time.get(i),subN);
 
 
             }

@@ -6,16 +6,78 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:id="@+id/bg_list_item"
-        android:background="@drawable/material_list"/>
+        android:padding="0dp"
+        android:background="@drawable/bg_signup"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txt_lecture_name"
         android:layout_alignTop="@+id/bg_list_item"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="12dp"
         android:layout_alignLeft="@+id/bg_list_item"
-        android:layout_marginLeft="33dp"
+        android:layout_marginLeft="12dp"
+        android:textSize="18sp"
+        android:textColor="#000000"
         />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_prof_lecture"
+        android:background="@drawable/list_professor"
+        android:layout_toEndOf="@+id/txt_lecture_name"
+        android:layout_marginLeft="30dp"
+        android:layout_alignTop="@id/txt_lecture_name"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_lecture_profn"
+        android:layout_toEndOf="@id/img_prof_lecture"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/img_prof_lecture"
+        android:layout_marginTop="3dp"
+        android:textSize="10sp"
+        android:textColor="#000000"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_classtime_lecture"
+        android:layout_toEndOf="@+id/txt_lecture_profn"
+        android:layout_marginLeft="12dp"
+        android:layout_alignTop="@+id/img_prof_lecture"
+        android:background="@drawable/list_classtime"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_lecture_classtime"
+        android:layout_toEndOf="@id/img_classtime_lecture"
+        android:layout_marginLeft="5dp"
+        android:layout_alignTop="@+id/img_prof_lecture"
+        android:layout_marginTop="3dp"
+        android:textSize="10sp"
+        android:textColor="#000000"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_lecture_next"
+        android:layout_alignTop="@+id/txt_lecture_classtime"
+        android:layout_alignRight="@+id/bg_list_item"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/list_go_next"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_lecture_new"
+        android:background="@drawable/list_new"
+        android:layout_alignTop="@+id/txt_lecture_classtime"
+        android:layout_toStartOf="@+id/imgbtn_lecture_next"
+        android:layout_marginRight="10dp"
+        android:visibility="visible"/>
 </RelativeLayout>

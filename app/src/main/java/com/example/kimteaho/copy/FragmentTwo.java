@@ -1,5 +1,6 @@
 package com.example.kimteaho.copy;
 
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -67,6 +69,8 @@ public class FragmentTwo extends Fragment {
 
 
 
+
+
         Net net = new Net();
         net.execute();
 
@@ -114,7 +118,7 @@ public class FragmentTwo extends Fragment {
             for( int i=0; i<arrayList_subName.size(); i++)
             {
 
-                adapter.add(arrayList_subName.get(i),arrayList_ttcode.get(i));
+                adapter.add(arrayList_subName.get(i),arrayList_ttcode.get(i),arrayList_pron.get(i),(arrayList_day1.get(i)+arrayList_time1.get(i)+arrayList_day2.get(i)+arrayList_time2.get(i)));
 
 
             }
@@ -173,13 +177,21 @@ public class FragmentTwo extends Fragment {
                         case XmlPullParser.TEXT:
                             if(tagId == 1)
                             {
-                                test = xpp.getText().trim();
-                                arrayList_pron.add(test);
+                                arrayList_pron.add(xpp.getText());
                             }
                             else if (tagId == 2)
                             {
                                 arrayList_subName.add(xpp.getText());
+
                             }
+                            else if(tagId == 3 )
+                                arrayList_day1.add(xpp.getText());
+                            else if(tagId == 4)
+                                arrayList_time1.add(xpp.getText());
+                            else if (tagId == 5)
+                                arrayList_day2.add(xpp.getText());
+                            else if (tagId == 6)
+                                arrayList_time2.add(xpp.getText());
                             else if (tagId == 7)
                             {
                                 arrayList_ttcode.add(xpp.getText());

@@ -1,0 +1,13 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_side" tools:context=".NavigationDrawerFragment" >
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:src="@drawable/profile_default"
+        android:layout_marginTop="42dp"
+        android:layout_marginLeft="69dp"
+        />
+</RelativeLayout>

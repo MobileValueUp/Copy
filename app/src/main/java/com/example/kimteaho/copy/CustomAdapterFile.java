@@ -19,10 +19,13 @@ public class CustomAdapterFile extends BaseAdapter {
 
     private ArrayList<String> m_List_name;
     private ArrayList<String> m_List_filecode;
+    private ArrayList<String> m_List_upTime;
+    private String subn;
 
     public CustomAdapterFile(){
         m_List_name = new ArrayList<String>();
         m_List_filecode = new ArrayList<String>();
+        m_List_upTime = new ArrayList<String>();
     }
 
     @Override
@@ -52,9 +55,17 @@ public class CustomAdapterFile extends BaseAdapter {
 
             convertView = inflater.inflate(R.layout.list_file_item,parent,false);
 
-            TextView txt_filename = (TextView)convertView.findViewById(R.id.txt_file_name);
+            TextView txt_subname = (TextView)convertView.findViewById(R.id.txt_file_name);
+            txt_subname.setText(subn);
+
+            TextView txt_filename = (TextView)convertView.findViewById(R.id.txt_fileitem_subn);
             txt_filename.setText(m_List_name.get(position));
 
+            TextView txt_uptime = (TextView)convertView.findViewById(R.id.txt_fileitem_upload);
+            txt_uptime.setText(m_List_upTime.get(position));
+
+            TextView txt_due = (TextView)convertView.findViewById(R.id.txt_fileitem_due);
+            txt_due.setText(m_List_upTime.get(position));
 
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -71,9 +82,12 @@ public class CustomAdapterFile extends BaseAdapter {
         return convertView;
     }
 
-    public void add(String msg, String filecode){
+    public void add(String msg, String filecode, String uptime,String sn){
         m_List_name.add(msg);
         m_List_filecode.add(filecode);
+        m_List_upTime.add(uptime);
+        subn = sn;
+
     }
 
 

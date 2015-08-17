@@ -2,6 +2,7 @@ package com.example.kimteaho.copy;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +22,15 @@ public class CustomAdapter extends BaseAdapter {
 
     private ArrayList<String> m_List_name;
     private ArrayList<String> m_List_ttcode;
+    private ArrayList<String> m_List_profn;
+    private ArrayList<String> m_List_time;
 
 
     public CustomAdapter(){
         m_List_name = new ArrayList<String>();
         m_List_ttcode = new ArrayList<String>();
+        m_List_time = new ArrayList<String>();
+        m_List_profn = new ArrayList<String>();
     }
 
     @Override
@@ -57,6 +62,18 @@ public class CustomAdapter extends BaseAdapter {
 
             TextView txt_lecname = (TextView)convertView.findViewById(R.id.txt_lecture_name);
             txt_lecname.setText(m_List_name.get(position));
+
+            TextView txt_profn = (TextView)convertView.findViewById(R.id.txt_lecture_profn);
+            txt_profn.setText(m_List_profn.get(position));
+
+            TextView txt_time = (TextView)convertView.findViewById(R.id.txt_lecture_classtime);
+            txt_time.setText(m_List_time.get(position));
+
+            Typeface typeface = Typeface.createFromAsset(context.getAssets(), "NanumBarunGothic.ttf");
+
+            txt_lecname.setTypeface(typeface);
+            txt_profn.setTypeface(typeface);
+            txt_time.setTypeface(typeface);
 
 
             convertView.setOnClickListener(new View.OnClickListener() {
@@ -97,9 +114,12 @@ public class CustomAdapter extends BaseAdapter {
         return convertView;
     }
 
-    public void add(String subn, String ttcode){
+    public void add(String subn, String ttcode,String pron,String time){
         m_List_name.add(subn);
         m_List_ttcode.add(ttcode);
+        m_List_profn.add(pron);
+        m_List_time.add(time);
+
     }
 
 

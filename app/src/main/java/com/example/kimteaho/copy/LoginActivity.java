@@ -26,6 +26,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 
 
+
 public class LoginActivity extends Activity {
 
     String usId = "";
@@ -171,6 +172,22 @@ public class LoginActivity extends Activity {
                         if(xpp.getName().equals("ok") )
                         {
                             parId = xpp.nextText();
+
+                        }
+                        else if ( xpp.getName().equals("name"))
+                        {
+
+                        }
+                        else if ( xpp.getName().equals("usCd"))
+                        {
+
+                        }
+                        else if( xpp.getName().equals("school"))
+                        {
+
+                        }
+                        else if ( xpp.getName().equals("point"))
+                        {
 
                         }
 

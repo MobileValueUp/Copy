@@ -12,12 +12,18 @@ import java.net.URL;
 
 
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.Image;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Browser;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -25,17 +31,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.net.MalformedURLException;
 
 
-public class UploadActivity extends ActionBarActivity {
+public class UploadActivity extends Activity {
 
 
     TextView in,out;
-    Button uploadButton;
+    ImageButton uploadButton;
     int serverResponseCode = 0;
     ProgressDialog dialog = null;
 
@@ -47,8 +54,11 @@ public class UploadActivity extends ActionBarActivity {
     final String uploadFilePath = "storage/emulated/0/Pictures/";//경로를 모르겠으면, 갤러리 어플리케이션 가서 메뉴->상세 정보
     final String uploadFileName = "screenshot.png"; //전송하고자하는 파일 이름
     String FilePath,Filename;
+    Uri uri = null;
 
     //52.68.141.174
+    TextView txt_title;
+    boolean isEndSelec= false;
 
 
 
@@ -56,10 +66,14 @@ public class UploadActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
-        Button back = (Button)findViewById(R.id.upload_back);
-        uploadButton = (Button)findViewById(R.id.upload_button);
+        ImageButton back = (ImageButton)findViewById(R.id.backprint);
+        uploadButton = (ImageButton)findViewById(R.id.btn_next);
         in = (TextView)findViewById(R.id.inputId);
         out = (TextView)findViewById(R.id.inputPwd);
+
+        txt_title = (TextView)findViewById(R.id.txt_upload_title);
+
+        isEndSelec = false;
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,20 +88,10 @@ public class UploadActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                dialog = ProgressDialog.show(UploadActivity.this, "", "Uploading file...", true);
 
-                new Thread(new Runnable() {
-                    public void run() {
-                        runOnUiThread(new Runnable() {
-                            public void run() {
-                            //    messageText.setText("uploading started.....");
-                            }
-                        });
+                doSelectFile();
 
-                        uploadFile(FilePath);
 
-                    }
-                }).start();
             }
         });
 
@@ -106,7 +110,7 @@ public class UploadActivity extends ActionBarActivity {
         }*/
 
 
-        doSelectFile();
+        //doSelectFile();
 
 
 
@@ -117,22 +121,49 @@ public class UploadActivity extends ActionBarActivity {
         switch (requestCode) {
             case SELECT_IMAGE:
                 if (resultCode == RESULT_OK) {
-                    FilePath = data.getData().getPath();
+
+                    if(Build.VERSION.SDK_INT >= 19)
+                    {
+                        uri = data.getData();
+                        /*final String id = DocumentsContract.getDocumentId(uri);
+                        uri= ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));*/
+                    }
+                    else
+                        uri = data.getData();
+
+                    FilePath = uri.toString();
                     //Filename = data.getData().getLastPathSegment();
                     //Filename = data.
+                    //Filename = getPathFromUri(uri);
                     Filename = getAbsolutePathFromUri(this,data.getData());
                     //String A = getAbsolutePathFromUri(data.getData().getEncodedPath(),Uri.parse(FilePath));
                     //String B = A.getPath();
 
-                    in.setText(FilePath);
+                    in.setText(uri.toString());
                     out.setText(Filename);
 
-                    Toast.makeText(getApplication(),Filename,Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getApplication(),Filename,Toast.LENGTH_SHORT).show();
 
                     //File = getPath(a);
                     //Toast.makeText(getApplication(),File,Toast.LENGTH_SHORT).show();
 
                     //textFile.setText(FilePath);
+
+                    dialog = ProgressDialog.show(UploadActivity.this, "", "Uploading file...", true);
+
+                    new Thread(new Runnable() {
+                        public void run() {
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    //    messageText.setText("uploading started.....");
+                                }
+                            });
+
+                            uploadFile(Filename);
+                            isEndSelec = false;
+
+                        }
+                    }).start();
                 }
                 break;
         }
@@ -141,14 +172,24 @@ public class UploadActivity extends ActionBarActivity {
 
     private void doSelectFile()
     {
-        Intent i = new Intent(Intent.ACTION_GET_CONTENT);
-       // Intent i = new Intent(Intent.ACTION_PICK);
-        i.setType("file/*");
+        Intent i;
+
+        if(Build.VERSION.SDK_INT > 18)
+        {
+            i = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            i.setType("*/*");
+        }
+        else
+        {
+            i = new Intent(Intent.ACTION_GET_CONTENT);
+            i.setType("*/*");
+        }
+
         i.addCategory(Intent.CATEGORY_OPENABLE);
         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         try
         {
-            startActivityForResult(i, SELECT_IMAGE);
+            startActivityForResult(i,SELECT_IMAGE);
         } catch (android.content.ActivityNotFoundException e)
         {
             e.printStackTrace();
@@ -159,22 +200,49 @@ public class UploadActivity extends ActionBarActivity {
 
     }
     public String getPathFromUri(Uri uri){
-        Cursor cursor = getContentResolver().query(uri, null, null, null, null );
+     /*   Cursor cursor = getContentResolver().query(uri, null, null, null, null );
         cursor.moveToNext();
         String path = cursor.getString( cursor.getColumnIndex( "_data" ) );
-        cursor.close();
+        cursor.close();*/
+
+        Uri contentUri = null;
+
+        contentUri = MediaStore.Files.getContentUri(uri.getPath());
 
 
-        return path;
+
+        return contentUri.toString();
     }
     public static String getAbsolutePathFromUri(Context context, Uri uri) {
-        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-        cursor.moveToFirst();
-        String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
-        Log.d("path", path);
+        if(Build.VERSION.SDK_INT >= 19 ) {
+            final String id = DocumentsContract.getDocumentId(uri);
+            final Uri contenturi = ContentUris.withAppendedId(Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
+            Cursor cursor = context.getContentResolver().query(contenturi, null, null, null, null);
+            cursor.moveToFirst();
+            String path = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
+            //String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
+            Log.d("path", path);
 
-        return path;
+            return path;
+        }
+        else
+        {
+            Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+            cursor.moveToFirst();
+            String path = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
+            Log.d("path", path);
+
+            return path;
+        }
+
+
+
+
+
     }
+
+
+
     public String getPath(Uri uri) {
         String[] projection = {MediaStore.Files.FileColumns.DATA};
         Cursor cursor = managedQuery(uri, projection, null, null, null);
@@ -239,6 +307,8 @@ public class UploadActivity extends ActionBarActivity {
                 conn.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
                 conn.setRequestProperty("uploaded_file", fileName);
 
+
+
                 dos = new DataOutputStream(conn.getOutputStream());
 
                 dos.writeBytes(twoHyphens + boundary + lineEnd);
@@ -269,6 +339,9 @@ public class UploadActivity extends ActionBarActivity {
                 dos.writeBytes(lineEnd);
                 dos.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd);
 
+                /*conn.setRequestProperty("Content-Type","text/plain;boundary="+boundary);
+                conn.setRequestProperty("usCd","23");*/
+
                 // Responses from the server (code and message)
                 serverResponseCode = conn.getResponseCode();
                 String serverResponseMessage = conn.getResponseMessage();
@@ -287,8 +360,15 @@ public class UploadActivity extends ActionBarActivity {
                        //     messageText.setText(msg);
                          //   Toast.makeText(getApplication(), "File Upload Complete.",
                           //          Toast.LENGTH_SHORT).show();
+
+
+                            String[] res = Filename.split("/");
+                            Intent i = new Intent(UploadActivity.this,PrintOption1.class);
+                            i.putExtra("filen",res[res.length-1]);
+                            startActivity(i);
                         }
                     });
+
                 }
 
                 //close the streams //
@@ -332,27 +412,6 @@ public class UploadActivity extends ActionBarActivity {
     }
 
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
 }

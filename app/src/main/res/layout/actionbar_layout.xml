@@ -10,5 +10,13 @@
         android:textSize="18sp"
         android:textColor="#FFFFFF"
         android:layout_gravity="center"
-        android:text="강의 추가"/>
+        />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_actionbar"
+        android:layout_gravity="center"
+        android:background="@null"/>
 </LinearLayout>

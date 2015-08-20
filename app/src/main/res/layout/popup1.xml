@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_elemnet1"
+    android:layout_width="240dp"
+    android:layout_height="240dp"
+    android:background="@drawable/popup"
+    android:layout_gravity="center"
+    >
+
+
+    // 공지문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_realprint"
+        android:textSize="13sp"
+        android:textColor="#000000"
+        android:text= "포인트가 차감됩니다.
+정말로 인쇄하시겠습니까?"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+     // 신청하기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/apply"
+        android:src="@drawable/popup_apply_print_unclicked"
+        android:layout_below="@+id/txt_realprint"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="33dp"
+        android:background="@null"
+        />
+
+    // 취소하기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel"
+        android:src="@drawable/popup_cancel_unclicked"
+        android:layout_marginRight="33dp"
+        android:background="@null"
+        android:layout_alignTop="@+id/apply"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
+

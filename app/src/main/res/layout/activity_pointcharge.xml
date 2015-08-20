@@ -1,0 +1,228 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kimteaho.copy.LoginActivity"
+    android:background="#f7f6f3"
+    >
+
+    // 타이틀바 형태
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:id="@+id/titlebar_sign"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:padding="0dp"
+        android:src="@drawable/titlebar"
+       />
+
+    // 뒤로가기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/btnBackSign"
+        android:src="@drawable/btnback_unclicked"
+        android:background="@null"/>
+
+    // 타이틀바 이름
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="포인트 충전"
+        android:id="@+id/txt_title_name"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:layout_marginTop="17dp"
+        android:layout_toEndOf="@+id/btnBackSign"
+        android:layout_marginLeft="110dp" />
+
+    // 잔여포인트 배경
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pointbg"
+        android:src="@drawable/bg_point"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/titlebar_sign"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    // 잔여포인트 문구
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_point_remain"
+        android:text="잔여포인트"
+        android:textSize="12sp"
+        android:textColor="#6a6868"
+        android:textAlignment="center"
+        android:layout_below="@+id/titlebar_sign"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp" />
+
+    // 충전포인트 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_point_charge"
+        android:text="충전 포인트"
+        android:textSize="14sp"
+        android:textColor="#575757"
+        android:layout_below="@+id/pointbg"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"/>
+
+    // 충전포인트 선택
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/point_price1"
+        android:src="@drawable/addpoint1_unclicked"
+        android:layout_below="@+id/txt_point_charge"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/point_price2"
+        android:src="@drawable/addpoint2_unclicked"
+        android:layout_marginLeft="4dp"
+        android:layout_alignTop="@+id/point_price1"
+        android:layout_toEndOf="@+id/point_price1"
+        android:background="@null"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/point_price3"
+        android:src="@drawable/addpoint3_unclicked"
+        android:layout_marginLeft="4dp"
+        android:layout_alignTop="@+id/point_price2"
+        android:layout_toEndOf="@+id/point_price2"
+        android:background="@null"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/point_price4"
+        android:src="@drawable/addpoint4_unclicked"
+        android:layout_marginLeft="4dp"
+        android:layout_alignTop="@+id/point_price3"
+        android:layout_toEndOf="@+id/point_price3"
+        android:background="@null"/>
+
+    //선택총금액 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/total_price_title"
+        android:text=": 총 금액"
+        android:textSize="14sp"
+        android:textColor="#969696"
+        android:layout_below="@+id/point_price1"
+        android:layout_marginLeft="212dp"
+        android:layout_marginTop="22dp"/>
+
+    //선택총금액 표시
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/total_price"
+        android:text = "0 원"
+        android:textSize="18sp"
+        android:textColor="#FF863E"
+        android:layout_below="@+id/point_price1"
+        android:layout_marginTop="18dp"
+        android:layout_alignEnd="@+id/pointbg"
+        />
+
+
+
+    //결제수단 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/payment_method_title"
+        android:text="결제수단"
+        android:textSize="14sp"
+        android:textColor="#575757"
+        android:layout_below="@+id/total_price_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="36dp"/>
+
+    //신용카드
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/payment_card"
+        android:src="@drawable/btncard_unclicked"
+        android:layout_below="@+id/payment_method_title"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"
+        />
+
+    //무통장입금
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/payment_deposit"
+        android:src="@drawable/btndeposit_unclicked"
+        android:layout_alignTop="@+id/payment_card"
+        android:layout_alignEnd="@+id/pointbg"
+        android:background="@null"/>
+
+    //카카오페이
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/payment_kpay"
+        android:src="@drawable/btnkpay_unclicked"
+        android:layout_below="@+id/payment_card"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@null"/>
+
+    //계좌이체
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/payment_transfer"
+        android:src="@drawable/btntransfer_unclicked"
+        android:layout_alignTop="@+id/payment_kpay"
+        android:layout_alignEnd="@+id/pointbg"
+        android:background="@null"/>
+
+    //결제확인버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/paymentcheck"
+        android:src="@drawable/btnpay"
+        android:layout_below="@+id/payment_kpay"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="105dp"
+        android:layout_marginTop="90dp"
+        android:background="@null"/>
+
+</RelativeLayout>

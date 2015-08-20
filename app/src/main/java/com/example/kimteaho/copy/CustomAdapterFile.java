@@ -71,7 +71,7 @@ public class CustomAdapterFile extends BaseAdapter {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context,"click" + m_List_name.get(pos),Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(context,FileViewActivity.class);
+                    Intent i = new Intent(context,PrintOption1.class);
                     i.putExtra("filen",m_List_name.get(pos));
                     i.putExtra("filecode",m_List_filecode.get(pos));
                     context.startActivity(i);

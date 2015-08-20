@@ -6,8 +6,82 @@
     <com.mikhaellopez.circularimageview.CircularImageView
         android:layout_width="104dp"
         android:layout_height="104dp"
+        android:id="@+id/cirview_side"
         android:src="@drawable/profile_default"
         android:layout_marginTop="42dp"
         android:layout_marginLeft="69dp"
         />
+
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_side_name"
+        android:textSize="12sp"
+        android:textColor="#a7a6a6"
+        android:layout_below="@+id/cirview_side"
+        android:layout_marginTop="4dp"
+        android:gravity="center"
+        />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_side_point"
+        android:textSize="16sp"
+        android:textColor="#29b1d7"
+        android:layout_below="@+id/txt_side_name"
+        android:layout_marginTop="8dp"
+        android:gravity="center"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_side_recpt"
+        android:background="@drawable/get_side_normal"
+        android:layout_below="@id/txt_side_point"
+        android:layout_marginTop="82dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_side_pprint"
+        android:background="@drawable/add_side_normal"
+        android:layout_below="@+id/imgbtn_side_recpt"
+        android:layout_marginTop="20dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_side_line"
+        android:background="@drawable/line_side"
+        android:layout_below="@+id/imgbtn_side_pprint"
+        android:layout_marginTop="15dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_side_point"
+        android:background="@drawable/point_side_normal"
+        android:layout_below="@+id/img_side_line"
+        android:layout_marginTop="15dp"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_side_setting"
+        android:background="@drawable/setting_side_normal"
+        android:layout_below="@+id/imgbtn_side_point"
+        android:layout_marginTop="10dp"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_side_logout"
+        android:background="@drawable/logout_side_normal"
+        android:layout_below="@+id/imgbtn_side_setting"
+        android:layout_marginTop="10dp"/>
+
 </RelativeLayout>

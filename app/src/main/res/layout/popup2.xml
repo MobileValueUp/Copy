@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_elemnet2"
+    android:layout_width="240dp"
+    android:layout_height="240dp"
+    android:background="@drawable/popup"
+    android:layout_gravity="center"
+    >
+
+    // 포인트부족 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_point_lack"
+        android:textSize="13sp"
+        android:textColor="#000000"
+        android:text= "포인트가 부족합니다."
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+
+    // 포인트충전 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/point_charge"
+        android:src="@drawable/popup_add_point_unclicked"
+        android:background="@null"
+        android:layout_below="@+id/txt_point_lack"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

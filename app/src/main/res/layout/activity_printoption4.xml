@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kimteaho.copy.LoginActivity"
+>
+
+    // 타이틀바 형태
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:id="@+id/titlebar_sign"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:padding="0dp"
+        android:src="@drawable/titlebar"
+        />
+
+    // 뒤로가기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/backprint"
+        android:src="@drawable/btnback_unclicked"
+        android:background="@null"
+       />
+
+    // 부수 문구
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_circulation"
+        android:text="부수"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_marginTop="45dp"
+      android:layout_below="@+id/titlebar_sign"
+        android:layout_centerHorizontal="true" />
+
+    // 수령시작시간 문구
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_receipt_time"
+        android:text="수령시작시간"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_marginTop="95dp"
+        android:layout_below="@+id/txt_circulation"
+        android:layout_centerHorizontal="true" />
+
+    // 공지문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_notice"
+        android:text="강의안 인쇄는 수령시간이 지정되어 있습니다.
+    당일 수령하지 않은 강의안은 폐기됩니다."
+        android:textSize="10sp"
+        android:textColor="#065B75"
+        android:layout_marginTop="81dp"
+        android:layout_below="@+id/txt_receipt_time"
+        android:layout_centerHorizontal="true" />
+
+
+
+    // 프린트 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/print"
+        android:src="@drawable/page_print_unclicked"
+        android:layout_below="@+id/txt_notice"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,165 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kimteaho.copy.LoginActivity"
+>
+
+    // 타이틀바 형태
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:id="@+id/titlebar_sign"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:padding="0dp"
+        android:src="@drawable/titlebar"
+        />
+
+    // 뒤로가기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/backprint"
+        android:src="@drawable/btnback_unclicked"
+        android:background="@null"
+        />
+
+
+    // 칼라인쇄 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_color_print"
+        android:text="칼라인쇄"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_below="@+id/titlebar_sign"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="86dp"
+
+        />
+
+    // 칼라인쇄 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/color_print"
+        android:src="@drawable/page_color_unchecked"
+        android:layout_below="@+id/txt_color_print"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="70dp"
+        android:background="@null"
+        />
+
+    // 흑백인쇄 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_uncolor_print"
+        android:text="흑백인쇄"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_below="@+id/titlebar_sign"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="86dp"
+        android:layout_alignParentEnd="true"
+
+        />
+
+    // 흑백인쇄 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/uncolor_print"
+        android:src="@drawable/page_uncolor_unchecked"
+        android:layout_below="@+id/txt_color_print"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="70dp"
+        android:layout_alignParentEnd="true"
+        android:background="@null"
+        />
+
+
+    // 가로방향 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_width"
+        android:text="가로방향"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_below="@+id/color_print"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="86dp"
+
+        />
+
+    // 가로방향 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/width"
+        android:src="@drawable/page_width_unchecked"
+        android:layout_below="@+id/txt_width"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="70dp"
+        android:background="@null"
+        />
+
+
+    // 세로방향 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_height"
+        android:text="세로방향"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_below="@+id/uncolor_print"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="86dp"
+        android:layout_alignParentEnd="true"
+
+        />
+
+    // 세로방향 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/height"
+        android:src="@drawable/page_height_unchecked"
+        android:layout_below="@+id/txt_height"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="70dp"
+        android:layout_alignParentEnd="true"
+        android:background="@null"
+        />
+
+
+    // 넘어가기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_next"
+        android:src="@drawable/page_next_unchecked"
+        android:background="@null"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/height"
+        android:layout_marginTop="45dp"/>
+
+
+</RelativeLayout>

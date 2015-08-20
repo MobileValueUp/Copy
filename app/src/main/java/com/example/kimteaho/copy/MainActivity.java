@@ -16,6 +16,7 @@ import android.support.v4.app.FragmentManager;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -64,6 +65,8 @@ public class MainActivity extends ActionBarActivity
     private static final String TAB5 = "tab5";
 
 
+
+
 //add name test
     //test
 
@@ -90,6 +93,13 @@ public class MainActivity extends ActionBarActivity
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
+
+        actionBar.setHomeAsUpIndicator(R.drawable.title_clip);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.actionbar_layout);
+
+        ImageView imageView_actmain = (ImageView)findViewById(R.id.img_actionbar);
+        imageView_actmain.setImageResource(R.drawable.title_copytogether);
         // Set up the ViewPager with the sections adapter.
 
 
@@ -288,12 +298,20 @@ public class MainActivity extends ActionBarActivity
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
-        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setTitle(mTitle);
+
+
+        actionBar.setHomeAsUpIndicator(R.drawable.title_clip);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.actionbar_layout);
+
+        ImageView imageView_actmain = (ImageView)findViewById(R.id.img_actionbar);
+        imageView_actmain.setImageResource(R.drawable.title_copytogether);
     }
 
 
-   /* @Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (!mNavigationDrawerFragment.isDrawerOpen()) {
             // Only show items in the action bar relevant to this screen
@@ -304,6 +322,8 @@ public class MainActivity extends ActionBarActivity
             restoreActionBar();
             return true;
         }
+
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -315,29 +335,17 @@ public class MainActivity extends ActionBarActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-         //   FragmentFour fr = new FragmentFour();
+        if (id == R.id.action_alaram) {
 
-           // fr = new FragmentFour();
-
-         //   android.app.FragmentManager fm = getFragmentManager();
-            FragmentManager fmm = getSupportFragmentManager();
-
-
-          //  android.app.FragmentTransaction  fra = fm.beginTransaction();
-            FragmentTransaction fra2 =fmm.beginTransaction();
-
-            //fra.replace(R.id.realtabcontent, fr);
-            fra2.replace(R.id.realtabcontent,fr4);
-            //tabHost.setup(this, getSupportFragmentManager(),R.id.realtabcontent2);
-            fra2.commit();
-
+            Toast.makeText(getApplicationContext(),"hi",Toast.LENGTH_SHORT).show();
 
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
+
+
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
         public SectionsPagerAdapter(FragmentManager fm) {

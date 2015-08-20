@@ -1,5 +1,6 @@
 package com.example.kimteaho.copy;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -22,7 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 
-public class FileViewActivity extends Activity {
+public class FileViewActivity extends ActionBarActivity {
 
     String subN;
     private String tt;
@@ -45,18 +46,63 @@ public class FileViewActivity extends Activity {
         arrayList_time = new ArrayList<String>();
         arrayList_filecode = new ArrayList<String>();
 
-        TextView txt_subn = (TextView)findViewById(R.id.txt_file_subjectn);
-        txt_subn.setText(subN);
+
 
         file_list = (ListView)findViewById(R.id.list_file);
 
         adapterFile = new CustomAdapterFile();
+
+        final android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        //actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setHomeAsUpIndicator(R.drawable.btnback);
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setCustomView(R.layout.actionbar_layout);
+        //actionBar.setLogo(R.drawable.btnback);
+
+        TextView txt_subn = (TextView)findViewById(R.id.txt_actionbar);
+        txt_subn.setText(subN);
 
         //Toast.makeText(getApplicationContext(),tt,Toast.LENGTH_SHORT).show();
 
         net = new Net();
         net.execute();
     }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_add_lecture, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_add_lecture) {
+
+
+            Intent i = new Intent(FileViewActivity.this,UploadActivity.class);
+            startActivity(i);
+
+            return true;
+        }
+
+        if( id == android.R.id.home)
+        {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
 
 

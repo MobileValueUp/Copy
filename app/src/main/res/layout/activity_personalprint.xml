@@ -33,4 +33,12 @@
         android:layout_alignEnd="@+id/inputPwd"
         android:layout_marginTop="70dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인쇄하기"
+        android:id="@+id/printbutton"
+        android:layout_below="@+id/personal_back"
+        android:layout_alignStart="@+id/personal_back" />
+
 </RelativeLayout>

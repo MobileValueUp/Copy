@@ -1,36 +1,229 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="300dp"
     tools:context="com.example.kimteaho.copy.LoginActivity">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/inputId"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="105dp"
-        android:layout_alignEnd="@+id/inputPwd" />
+    // 타이틀바 형태
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/inputPwd"
-        android:layout_below="@+id/inputId"
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:id="@+id/titlebar_sign"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp" />
+        android:layout_alignParentEnd="true"
+        android:padding="0dp"
+        android:src="@drawable/titlebar"
+        />
 
-    <Button
+    // 타이틀바 이름
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/receipt_back"
-        android:layout_below="@+id/inputPwd"
-        android:layout_alignEnd="@+id/inputPwd"
-        android:layout_marginTop="70dp" />
+        android:text="수령"
+        android:id="@+id/txt_title_name"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:layout_marginTop="17dp"
+        android:layout_centerHorizontal="true" />
+
+    // 클립 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/clip"
+        android:src="@drawable/title_clip"
+        android:background="@null"/>
+
+
+    // 알람 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/alarm"
+        android:src="@drawable/title_alarm_new"
+        android:background="@null"
+        android:layout_alignTop="@+id/clip"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp" />
+
+
+    // 강의안
+
+
+    //수령리스트
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="95dp"
+        android:id="@+id/receipt_list_1"
+        android:background="@drawable/bg_list"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/titlebar_sign"
+        android:layout_alignEnd="@+id/alarm"
+        android:layout_alignStart="@+id/clip" />
+
+    // 다음 화살표
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/next1"
+        android:src="@drawable/list_go_next"
+        android:background="@null"
+        android:layout_below="@+id/titlebar_sign"
+        android:layout_marginTop="52dp"
+        android:layout_alignStart="@+id/alarm" />
+
+
+    //과목명
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/subject_name1"
+        android:text="경제경영수학"
+        android:textSize="12sp"
+        android:textColor="#FF863E"
+        android:layout_alignStart="@+id/clip"
+        android:layout_below="@id/titlebar_sign"
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="12dp"
+
+        />
+
+    //파일명
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/file_name1"
+        android:text="Ch.8 Linear Algebra.hwp"
+        android:textSize="18sp"
+        android:textColor="#686666"
+        android:layout_alignStart="@+id/clip"
+        android:layout_marginLeft="12dp"
+        android:layout_below="@id/subject_name1"
+        android:layout_marginTop="8dp"
+ />
+
+    //시간아이콘
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/duetime1"
+        android:src="@drawable/list_duetime"
+        android:layout_alignStart="@+id/clip"
+        android:layout_marginLeft="12dp"
+        android:layout_below="@+id/file_name1"
+        android:layout_marginTop="12dp"
+         />
+
+    //시간 텍스트
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_due_time1"
+        android:text="2015/08/18/12:49"
+        android:textSize="12sp"
+        android:textColor="#686666"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/file_name1"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/duetime1" />
+
+
+    //강의안
+
+    //수령리스트
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="95dp"
+        android:id="@+id/receipt_list_2"
+        android:background="@drawable/bg_list"
+        android:layout_below="@+id/receipt_list_1"
+        android:layout_marginTop="5dp"
+        android:layout_alignEnd="@+id/alarm"
+        android:layout_alignStart="@+id/clip"  />
+
+    // 다음 화살표
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/next2"
+        android:src="@drawable/list_go_next"
+        android:background="@null"
+        android:layout_alignTop="@+id/receipt_list_2"
+        android:layout_marginTop="40dp"
+        android:layout_alignStart="@+id/next1" />
+
+
+    //과목명
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/subject_name2"
+        android:text="개인"
+        android:textSize="12sp"
+        android:textColor="#065B75"
+        android:layout_marginLeft="12dp"
+        android:layout_alignTop="@+id/receipt_list_2"
+        android:layout_alignStart="@+id/clip"
+        android:layout_marginTop="15dp"
+
+        />
+
+    //파일명
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/file_name2"
+        android:text="sw프로젝트.pdf"
+        android:textSize="18sp"
+        android:textColor="#686666"
+        android:layout_marginLeft="12dp"
+        android:layout_below="@id/subject_name2"
+        android:layout_marginTop="8dp"
+        android:layout_alignStart="@+id/clip"
+
+
+ />
+
+    //시간아이콘
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/duetime2"
+        android:src="@drawable/list_duetime"
+        android:layout_alignStart="@+id/clip"
+        android:layout_marginLeft="12dp"
+        android:layout_below="@+id/file_name2"
+        android:layout_marginTop="12dp"
+        />
+
+    //시간 텍스트
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_due_time2"
+        android:text="2015/08/18/12:49"
+        android:textSize="12sp"
+        android:textColor="#686666"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/file_name2"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@+id/duetime2" />
 
 </RelativeLayout>

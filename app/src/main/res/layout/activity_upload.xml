@@ -1,44 +1,164 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent" android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    android:paddingBottom="0dp"
     tools:context="com.example.kimteaho.copy.LoginActivity">
+
+    // 타이틀바 형태
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:id="@+id/titlebar_sign"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:padding="0dp"
+        android:src="@drawable/titlebar"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_upload_title"
+        android:layout_alignTop="@+id/titlebar_sign"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="새 강의안 업로드"
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
+
+    // 뒤로가기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/backprint"
+        android:src="@drawable/btnback_unclicked"
+        android:background="@null"
+        />
+
+    // 내용확인하기 문구
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_check_content"
+        android:text="내폰에서파일첨부"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_below="@+id/titlebar_sign"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="40dp"
+
+        />
+
+    // 내용확인하기 버튼
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rdg_upload"
+        android:layout_below="@+id/txt_check_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="70dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/check_content"
+            android:button="@drawable/selcetor_myphone"
+            android:background="@null"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/setting_print"
+            android:button="@drawable/selcetor_lab"
+            android:background="@null"
+            android:layout_marginLeft="120dp"
+            />
+
+    </RadioGroup>
+    // 인쇄설정하기 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_setting_print"
+        android:text="브라우저에서파일첨부"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_alignTop="@+id/txt_check_content"
+        android:layout_marginRight="40dp"
+        android:layout_alignParentEnd="true" />
+
+
+
+
+    // 넘어가기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/btn_next"
+        android:src="@drawable/page_next_unchecked"
+        android:background="@null"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/rdg_upload"
+        android:layout_marginTop="45dp"/>
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/inputId"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="105dp"
-        android:layout_alignEnd="@+id/inputPwd" />
+        android:layout_below="@+id/btn_next"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:id="@+id/inputPwd"
         android:layout_below="@+id/inputId"
-        android:layout_alignParentStart="true"
         android:layout_marginTop="52dp" />
+    <!-- <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:id="@+id/inputId"
+         android:layout_alignParentStart="true"
+         android:layout_marginTop="105dp"
+         android:layout_alignEnd="@+id/inputPwd" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/upload_back"
-        android:layout_below="@+id/inputPwd"
-        android:layout_alignEnd="@+id/inputPwd"
-        android:layout_marginTop="70dp" />
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Up"
-        android:id="@+id/upload_button"
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/upload_back"
-        android:layout_alignEnd="@+id/inputPwd" />
+         android:id="@+id/inputPwd"
+         android:layout_below="@+id/inputId"
+         android:layout_alignParentStart="true"
+         android:layout_marginTop="52dp" />
+
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Back"
+         android:id="@+id/upload_back"
+         android:layout_below="@+id/inputPwd"
+         android:layout_alignEnd="@+id/inputPwd"
+         android:layout_marginTop="70dp" />
+
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Up"
+         android:id="@+id/upload_button"
+         android:layout_marginTop="40dp"
+         android:layout_below="@+id/upload_back"
+         android:layout_alignEnd="@+id/inputPwd" />-->
 
 </RelativeLayout>

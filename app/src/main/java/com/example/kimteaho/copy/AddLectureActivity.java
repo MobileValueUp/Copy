@@ -65,6 +65,8 @@ public class AddLectureActivity extends ActionBarActivity {
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setCustomView(R.layout.actionbar_layout);
         //actionBar.setLogo(R.drawable.btnback);
+        TextView txt_addlec_title = (TextView)findViewById(R.id.txt_actionbar);
+        txt_addlec_title.setText("강의 추");
 
 
       /*  RadioGroup radioGroup_schop = (RadioGroup)findViewById(R.id.rdg_add_lecture_1);

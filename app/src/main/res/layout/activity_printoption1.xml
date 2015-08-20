@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kimteaho.copy.LoginActivity"
+>
+
+    // 타이틀바 형태
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:id="@+id/titlebar_sign"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:padding="0dp"
+        android:src="@drawable/titlebar"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_prtop1_title"
+        android:layout_alignTop="@+id/titlebar_sign"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
+    // 뒤로가기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/backprint"
+        android:src="@drawable/btnback_unclicked"
+        android:background="@null"
+       />
+
+    // 내용확인하기 문구
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_check_content"
+        android:text="내용확인하기"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_below="@+id/titlebar_sign"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="78dp"
+
+     />
+
+    // 내용확인하기 버튼
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/check_content"
+        android:src="@drawable/page_check_deteil_unchecked"
+        android:layout_below="@+id/txt_check_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="70dp"
+        android:background="@null"
+ />
+
+    // 인쇄설정하기 문구
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_setting_print"
+        android:text="인쇄설정하기"
+        android:textSize="12sp"
+        android:textColor="#A09F9F"
+        android:layout_alignTop="@+id/txt_check_content"
+        android:layout_marginRight="78dp"
+        android:layout_alignParentEnd="true" />
+
+    // 인쇄설정하기 버튼
+
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:id="@+id/setting_print"
+        android:src="@drawable/page_settings_unchecked"
+        android:background="@null"
+        android:layout_alignTop="@+id/check_content"
+        android:layout_marginRight="70dp"
+        android:layout_alignParentEnd="true"
+   />
+
+
+    // 넘어가기 버튼
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/btn_next"
+        android:src="@drawable/page_next_unchecked"
+        android:background="@null"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/setting_print"
+        android:layout_marginTop="45dp"/>
+
+
+
+</RelativeLayout>

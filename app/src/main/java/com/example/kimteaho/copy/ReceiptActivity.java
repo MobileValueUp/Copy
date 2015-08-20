@@ -1,14 +1,19 @@
 package com.example.kimteaho.copy;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 
-public class ReceiptActivity extends ActionBarActivity {
+public class ReceiptActivity extends Activity {
 
 
 
@@ -16,24 +21,51 @@ public class ReceiptActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receipt);
-        Button back = (Button)findViewById(R.id.receipt_back);
 
-        back.setOnClickListener(new View.OnClickListener() {
+
+        TextView txt_title = (TextView)findViewById(R.id.txt_title_name);
+        TextView subject_name1  = (TextView)findViewById(R.id.subject_name1);
+        TextView file_name1 = (TextView)findViewById(R.id.file_name1);
+        TextView due_time1 = (TextView)findViewById(R.id.txt_due_time1);
+        TextView subject_name2  = (TextView)findViewById(R.id.subject_name2);
+        TextView file_name2 = (TextView)findViewById(R.id.file_name2);
+        TextView due_time2 = (TextView)findViewById(R.id.txt_due_time2);
+
+
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"NanumBarunGothic.ttf");
+        Typeface typefacel=  Typeface.createFromAsset(getAssets(), "NanumBarunGothicLight.ttf");
+
+        txt_title.setTypeface(typeface);
+        subject_name1.setTypeface(typeface);
+        file_name1.setTypeface(typefacel);
+        due_time1.setTypeface(typeface);
+        subject_name2.setTypeface(typeface);
+        file_name2.setTypeface(typefacel);
+        due_time2.setTypeface(typeface);
+
+
+        final ImageButton btn_next1 = (ImageButton)findViewById(R.id.next1);
+
+        btn_next1.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                setResult(1);
+
+
+                Intent i = new Intent(ReceiptActivity.this, ReceiptCheck1Activity.class);
                 finish();
+                startActivity(i);
+
             }
+
         });
-
-
 
 
 
 
     }
 
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -56,5 +88,5 @@ public class ReceiptActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+*/
 }

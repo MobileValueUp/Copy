@@ -7,9 +7,68 @@
     tools:context=".Tab$PlaceholderFragment">
 
 
-    <TextView android:id="@+id/section_label3"
+
+    //공강시간표
+
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/friend_timetable"
+        android:src="@drawable/timetable_friend_unclicked"
+        android:background="@null"
+        android:layout_marginTop="20dp"
         />
+
+    //공강시간찾기
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/friend_search"
+        android:src="@drawable/search_friend_unclicked"
+        android:background="@null"
+        android:layout_alignTop="@+id/friend_timetable"
+        android:layout_toEndOf="@+id/friend_timetable"
+        android:layout_marginLeft="10dp"/>
+
+    //친구추가
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/friend_add"
+        android:src="@drawable/add_friend_unclicked"
+        android:background="@null"
+        android:layout_alignTop="@+id/friend_timetable"
+        android:layout_toEndOf="@+id/friend_search"
+        android:layout_marginLeft="10dp" />
+
+
+    // 친구목록 문구
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/friend_list"
+        android:text="친구목록"
+        android:textSize="14sp"
+        android:textColor="#6A6868"
+        android:layout_below="@id/friend_timetable"
+        android:layout_marginTop="24dp"
+
+        />
+
+    //줄
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:id="@+id/frined_line"
+        android:src="@drawable/line_friend"
+        android:layout_below="@+id/friend_list"
+        android:layout_marginTop="10dp"
+        />
+
+
+
+
 
 </RelativeLayout>

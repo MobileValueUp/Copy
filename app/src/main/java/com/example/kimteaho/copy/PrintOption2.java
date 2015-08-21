@@ -16,6 +16,9 @@ public class PrintOption2 extends Activity {
     boolean selected_uncolor = false;
     boolean selected_width = false;
     boolean selected_height = false;
+    String filen;
+    String filecd;
+    String subn;
 
 
     @Override
@@ -23,6 +26,17 @@ public class PrintOption2 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_printoption2);
 
+        Intent intent = getIntent();
+
+        filen = intent.getExtras().getString("filen");
+        filecd = intent.getExtras().getString("filecode");
+        subn = intent.getExtras().getString("subn");
+
+
+        TextView txt_prtop2 = (TextView)findViewById(R.id.txt_prtop2_title);
+        txt_prtop2.setText(filen);
+        Typeface typeface = Typeface.createFromAsset(getAssets(),"NanumBarunGothicBold.ttf");
+        txt_prtop2.setTypeface(typeface);
 
         final ImageButton btn_back = (ImageButton)findViewById(R.id.backprint);
 
@@ -33,6 +47,9 @@ public class PrintOption2 extends Activity {
 
                 btn_back.setImageResource(R.drawable.btnback_click);
                 Intent i = new Intent(PrintOption2.this, PrintOption1.class);
+                i.putExtra("filen",filen);
+                i.putExtra("filecode",filecd);
+                i.putExtra("subn",subn);
                 finish();
                 startActivity(i);
 
@@ -46,7 +63,6 @@ public class PrintOption2 extends Activity {
         TextView txt_width = (TextView)findViewById(R.id.txt_width);
         TextView txt_height = (TextView)findViewById(R.id.txt_height);
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(),"NanumBarunGothicBold.ttf");
 
 
         txt_print_color.setTypeface(typeface);
@@ -151,6 +167,8 @@ public class PrintOption2 extends Activity {
 
                     btn_next.setImageResource(R.drawable.page_next_checked);
                     Intent i = new Intent(PrintOption2.this, PrintOption3.class);
+                    i.putExtra("filen",filen);
+                    i.putExtra("subn",subn);
                     finish();
                     startActivity(i);
 

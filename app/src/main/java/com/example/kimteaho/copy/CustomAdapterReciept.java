@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,17 +14,16 @@ import java.util.ArrayList;
 /**
  * Created by user on 8/10/15.
  */
-public class CustomAdapterFile extends BaseAdapter {
+public class CustomAdapterReciept extends BaseAdapter {
 
     private ArrayList<String> m_List_name;
-    private ArrayList<String> m_List_filecode;
-    private ArrayList<String> m_List_upTime;
-    private String subn;
+    private ArrayList<String> arrayList_subn;
+    private ArrayList<String> arrayList_ispaid;
 
-    public CustomAdapterFile(){
+    public CustomAdapterReciept(){
         m_List_name = new ArrayList<String>();
-        m_List_filecode = new ArrayList<String>();
-        m_List_upTime = new ArrayList<String>();
+        arrayList_subn = new ArrayList<String>();
+        arrayList_ispaid = new ArrayList<String>();
     }
 
     @Override
@@ -50,31 +48,31 @@ public class CustomAdapterFile extends BaseAdapter {
         final int pos = position;
         final Context context = parent.getContext();
 
-        if( convertView == null  ){
+        if( convertView == null && arrayList_ispaid.get(position).equals("0")  ){
+
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-            convertView = inflater.inflate(R.layout.list_file_item,parent,false);
+            convertView = inflater.inflate(R.layout.list_receipt_item,parent,false);
 
             TextView txt_subname = (TextView)convertView.findViewById(R.id.txt_file_name);
-            txt_subname.setText(subn);
+            txt_subname.setText(arrayList_subn.get(position));
 
             TextView txt_filename = (TextView)convertView.findViewById(R.id.txt_fileitem_subn);
             txt_filename.setText(m_List_name.get(position));
 
-            TextView txt_uptime = (TextView)convertView.findViewById(R.id.txt_fileitem_upload);
+            /*TextView txt_uptime = (TextView)convertView.findViewById(R.id.txt_fileitem_upload);
             txt_uptime.setText(m_List_upTime.get(position));
 
             TextView txt_due = (TextView)convertView.findViewById(R.id.txt_fileitem_due);
             txt_due.setText(m_List_upTime.get(position));
-
+*/
             convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context,"click" + m_List_name.get(pos),Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(context,PrintOption1.class);
+                    Intent i = new Intent(context,ReceiptCheck1Activity.class);
                     i.putExtra("filen",m_List_name.get(pos));
-                    i.putExtra("filecode",m_List_filecode.get(pos));
-                    i.putExtra("subn",subn);
+                    i.putExtra("subn",arrayList_subn.get(pos));
                     context.startActivity(i);
                 }
             });
@@ -83,11 +81,10 @@ public class CustomAdapterFile extends BaseAdapter {
         return convertView;
     }
 
-    public void add(String msg, String filecode, String uptime,String sn){
+    public void add(String msg, String sn,String pay){
         m_List_name.add(msg);
-        m_List_filecode.add(filecode);
-        m_List_upTime.add(uptime);
-        subn = sn;
+        arrayList_subn.add(sn);
+        arrayList_ispaid.add(pay);
 
     }
 

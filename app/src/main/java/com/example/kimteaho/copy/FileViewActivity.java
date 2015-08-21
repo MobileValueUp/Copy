@@ -91,6 +91,7 @@ public class FileViewActivity extends ActionBarActivity {
 
 
             Intent i = new Intent(FileViewActivity.this,UploadActivity.class);
+            i.putExtra("subn",subN);
             startActivity(i);
 
             return true;

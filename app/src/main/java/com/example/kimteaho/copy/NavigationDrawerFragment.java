@@ -1,5 +1,7 @@
 package com.example.kimteaho.copy;
 
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -19,7 +21,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -59,6 +63,11 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
 
+    private TextView txt_name;
+    private TextView txt_point;
+
+    private UserInfoGlobal userInfoGlobal;
+
     public NavigationDrawerFragment() {
     }
 
@@ -77,7 +86,12 @@ public class NavigationDrawerFragment extends Fragment {
         }
 
         // Select either the default item (0) or the last selected item.
+
         selectItem(mCurrentSelectedPosition);
+
+
+
+
     }
 
     @Override
@@ -90,6 +104,7 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
 
         mFragmentView = inflater.inflate(R.layout.fragment_navigation_drawer_v,container,false);
 
@@ -114,6 +129,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);*/
 
 
+
         return mFragmentView;
     }
 
@@ -130,6 +146,18 @@ public class NavigationDrawerFragment extends Fragment {
     public void setUp(int fragmentId, DrawerLayout drawerLayout) {
         mFragmentContainerView = getActivity().findViewById(fragmentId);
         mDrawerLayout = drawerLayout;
+
+        txt_name = (TextView)getActivity().findViewById(R.id.txt_side_name);
+        txt_point= (TextView)getActivity().findViewById(R.id.txt_side_point);
+
+        Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(),"NanumBarunGothic.ttf");
+
+//        txt_name.setText("광운대학교"+ " " + userInfoGlobal.getName());
+//        txt_point.setText(userInfoGlobal.getPoint());
+        txt_name.setTypeface(typeface);
+        txt_point.setTypeface(typeface);
+
+
 
         // set a custom shadow that overlays the main content when the drawer opens
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);

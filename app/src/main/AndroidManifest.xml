@@ -11,6 +11,7 @@
     </intent-filter>
 
     <application
+        android:name=".UserInfoGlobal"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -81,6 +82,11 @@
             android:name=".PrintOption4"
             android:label="@string/title_activity_add_lecture2" >
         </activity>
+        <activity android:name=".ReceiptCheck1Activity"/>
+        <activity android:name=".ReceiptCheck2Activity"/>
+        <activity android:name=".ReceiptCheck3Activity"/>
     </application>
+
+
 
 </manifest>

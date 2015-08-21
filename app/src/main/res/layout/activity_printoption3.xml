@@ -17,6 +17,15 @@
         android:src="@drawable/titlebar"
         />
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_prtop3_title"
+        android:layout_alignTop="@+id/titlebar_sign"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
     // 뒤로가기 버튼
 
     <ImageButton

@@ -60,12 +60,19 @@ public class UploadActivity extends Activity {
     TextView txt_title;
     boolean isEndSelec= false;
 
+    String subn;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
+
+        Intent intent = getIntent();
+
+        subn = intent.getExtras().getString("subn");
+
+
         ImageButton back = (ImageButton)findViewById(R.id.backprint);
         uploadButton = (ImageButton)findViewById(R.id.btn_next);
         in = (TextView)findViewById(R.id.inputId);
@@ -365,6 +372,7 @@ public class UploadActivity extends Activity {
                             String[] res = Filename.split("/");
                             Intent i = new Intent(UploadActivity.this,PrintOption1.class);
                             i.putExtra("filen",res[res.length-1]);
+                            i.putExtra("subn",subn);
                             startActivity(i);
                         }
                     });

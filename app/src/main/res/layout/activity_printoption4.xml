@@ -17,6 +17,16 @@
         android:src="@drawable/titlebar"
         />
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_prtop4_title"
+        android:layout_alignTop="@+id/titlebar_sign"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="18sp"/>
+
     // 뒤로가기 버튼
 
     <ImageButton
@@ -41,6 +51,17 @@
       android:layout_below="@+id/titlebar_sign"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_page"
+        android:layout_below="@+id/txt_circulation"
+        android:layout_marginTop="16dp"
+        android:textSize="12sp"
+        android:textColor="#065b75"
+        android:background="#ff29b1d7"
+        android:layout_centerHorizontal="true"/>
+
     // 수령시작시간 문구
     <TextView
         android:layout_width="wrap_content"
@@ -52,6 +73,17 @@
         android:layout_marginTop="95dp"
         android:layout_below="@+id/txt_circulation"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/edt_rptime"
+        android:layout_below="@+id/txt_receipt_time"
+        android:layout_marginTop="16dp"
+        android:textSize="12sp"
+        android:textColor="#065b75"
+        android:background="#ff29b1d7"
+        android:layout_centerHorizontal="true"/>
 
     // 공지문구
 

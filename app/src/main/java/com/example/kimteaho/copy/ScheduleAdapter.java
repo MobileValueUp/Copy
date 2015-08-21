@@ -31,6 +31,8 @@ public class ScheduleAdapter extends BaseAdapter {
 
     };
 
+    String[] timeColors={ "#b28850", "#69ac57", "#fc8785", "#c4dc6e", "#8e83a5", "#f59e20", "#99cfd5" };
+
     ArrayList<String> arrayList_subn;
     ArrayList<String> arrayList_day1;
     ArrayList<String> arrayList_time1;
@@ -41,6 +43,7 @@ public class ScheduleAdapter extends BaseAdapter {
     ArrayList<String> arrayList_pos2;
     int in = 0;
     int in2=0;
+    int inx=0;
 
     boolean isSub1= false;
     boolean isSub2 = false;
@@ -161,7 +164,8 @@ public class ScheduleAdapter extends BaseAdapter {
                     ((TextView) v).setGravity(Gravity.CENTER);
                     ((TextView) v).setText(arrayList_subn.get(in));
                     v.setLayoutParams(new GridView.LayoutParams(120, 118));
-                    v.setBackgroundColor(Color.RED);
+                    v.setBackgroundColor(Color.parseColor(timeColors[in]));
+
 
                     isSub1=false;
                     in = 0;
@@ -172,7 +176,7 @@ public class ScheduleAdapter extends BaseAdapter {
                     ((TextView) v).setGravity(Gravity.CENTER);
                     ((TextView) v).setText(arrayList_subn.get(in2));
                     v.setLayoutParams(new GridView.LayoutParams(120, 118));
-                    v.setBackgroundColor(Color.YELLOW);
+                    v.setBackgroundColor(Color.parseColor(timeColors[in2]));
                     isSub2=false;
                     in2= 0;
                 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="95dp"
+        android:id="@+id/list_file_item"
+        android:background="@drawable/bg_signup"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_file_name"
+        android:layout_alignTop="@+id/list_file_item"
+        android:layout_marginTop="15dp"
+        android:layout_alignLeft="@+id/list_file_item"
+        android:layout_marginLeft="12dp"
+        android:textSize="10sp"
+        android:textColor="#ff863e"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_fileitem_subn"
+        android:layout_below="@+id/txt_file_name"
+        android:layout_marginTop="8dp"
+        android:layout_alignLeft="@+id/txt_file_name"
+        android:textColor="#686666"
+        android:textSize="18sp"/>
+
+   <!-- <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_file_upload"
+        android:background="@drawable/list_upload"
+        android:layout_below="@id/txt_fileitem_subn"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_fileitem_upload"
+        android:layout_alignTop="@id/img_file_upload"
+        android:layout_toEndOf="@+id/img_file_upload"
+        android:textColor="#686666"
+        android:textSize="10sp"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_file_due"
+        android:background="@drawable/list_duetime"
+        android:layout_below="@id/txt_fileitem_subn"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/txt_fileitem_upload"
+        android:layout_marginLeft="30dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_fileitem_due"
+        android:layout_alignTop="@+id/img_file_due"
+        android:layout_toEndOf="@+id/img_file_due"
+        android:textColor="#686666"
+        android:textSize="10sp"/>-->
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn_file_next"
+        android:background="@drawable/list_go_next"
+        android:layout_alignRight="@+id/list_file_item"
+        android:layout_marginRight="10dp"
+        android:layout_alignTop="@+id/list_file_item"
+        android:layout_marginTop="40dp"
+        />
+
+</RelativeLayout>

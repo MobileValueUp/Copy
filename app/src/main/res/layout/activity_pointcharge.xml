@@ -54,6 +54,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_curpoint"
+        android:layout_alignTop="@+id/pointbg"
+        android:layout_marginTop="26dp"
+        android:layout_alignLeft="@+id/pointbg"
+        android:layout_marginLeft="140dp"
+        android:textSize="18sp"
+        android:textColor="#FF863e"/>
+
     // 잔여포인트 문구
     <TextView
         android:layout_width="wrap_content"

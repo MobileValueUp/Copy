@@ -1,5 +1,6 @@
 package com.example.kimteaho.copy;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -24,6 +25,8 @@ public class PointChargeActivity extends Activity {
     boolean selected_pprice2 = false;
     boolean selected_pprice3 = false;
     boolean selected_pprice4 = false;
+    UserInfoGlobal userInfoGlobal;
+    int cpoint=0;
 
 
     @Override
@@ -31,6 +34,7 @@ public class PointChargeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pointcharge);
 
+        userInfoGlobal = (UserInfoGlobal)getApplication();
 
         TextView txt_title = (TextView)findViewById(R.id.txt_title_name);
         TextView txt_state = (TextView)findViewById(R.id.txt_point_remain);
@@ -38,6 +42,8 @@ public class PointChargeActivity extends Activity {
         TextView total_price_title = (TextView)findViewById(R.id.total_price_title);
         TextView payment_method_title = (TextView)findViewById(R.id.payment_method_title);
 
+        TextView txt_point = (TextView)findViewById(R.id.txt_curpoint);
+        txt_point.setText(userInfoGlobal.getPoint());
 
 
         Typeface typeface = Typeface.createFromAsset(getAssets(),"NanumBarunGothic.ttf");
@@ -91,6 +97,7 @@ public class PointChargeActivity extends Activity {
                     pprice4.setEnabled(false);
                     total_price.setText("10000 원");
 
+                    cpoint=600;
 
                 }
 
@@ -123,6 +130,7 @@ public class PointChargeActivity extends Activity {
                     pprice3.setEnabled(false);
                     pprice4.setEnabled(false);
                     total_price.setText("20000 원");
+                    cpoint=1250;
 
 
                 }
@@ -157,6 +165,7 @@ public class PointChargeActivity extends Activity {
                     pprice2.setEnabled(false);
                     pprice4.setEnabled(false);
                     total_price.setText("50000 원");
+                    cpoint=3200;
 
 
                 }
@@ -191,6 +200,7 @@ public class PointChargeActivity extends Activity {
                     pprice3.setEnabled(false);
                     total_price.setText("100000 원");
 
+                    cpoint=6500;
 
                 }
 
@@ -316,6 +326,13 @@ public class PointChargeActivity extends Activity {
         btn_paycheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                UserInfoGlobal userInfoGlobal = (UserInfoGlobal)getApplication();
+                String temp = userInfoGlobal.getPoint();
+                cpoint += Integer.valueOf(temp) ;
+                userInfoGlobal.setPoint(String.valueOf(cpoint));
+                finish();
+                /*Intent i = new Intent(PointChargeActivity.this,ReceiptActivity.class);
+                startActivity(i);*/
             }
 
         });

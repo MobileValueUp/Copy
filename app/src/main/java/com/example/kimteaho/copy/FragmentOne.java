@@ -69,7 +69,9 @@ public class FragmentOne extends Fragment {
         arrayList_pos2 = new ArrayList<String>();
 
 
-        usCd = ((MainActivity)getActivity()).usId;
+        UserInfoGlobal userInfoGlobal = (UserInfoGlobal)getActivity().getApplication();
+
+        usCd = userInfoGlobal.getUsCd();
 
         GridSchedule = (GridView)getActivity().findViewById(R.id.schedule_grid);
 

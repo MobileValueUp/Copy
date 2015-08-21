@@ -97,7 +97,7 @@ public class CustomAdapter extends BaseAdapter {
             txt_lec_add.setText("수업을 추가해주세요.");
             ImageButton imgBtn_lecture_add = (ImageButton)convertView.findViewById(R.id.imgbtn_list_addbtn);
 
-            imgBtn_lecture_add.setOnClickListener(new View.OnClickListener() {
+            convertView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 

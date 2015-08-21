@@ -22,8 +22,11 @@ public class PrintOption3 extends Activity {
     boolean selected_page6_4 = false;
 
 
+    String filen;
+    String filecd;
 
 
+    String subn;
 
 
     @Override
@@ -31,7 +34,10 @@ public class PrintOption3 extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_printoption3);
 
-
+        Intent intent = getIntent();
+        filen = intent.getExtras().getString("filen");
+        filecd = intent.getExtras().getString("filecode");
+        subn = intent.getExtras().getString("subn");
 
         final ImageButton btn_back = (ImageButton)findViewById(R.id.backprint);
 
@@ -42,6 +48,9 @@ public class PrintOption3 extends Activity {
 
                 btn_back.setImageResource(R.drawable.btnback_click);
                 Intent i = new Intent(PrintOption3.this, PrintOption2.class);
+                i.putExtra("filen",filen);
+                i.putExtra("filecode",filecd);
+                i.putExtra("subn",subn);
                 finish();
                 startActivity(i);
 
@@ -50,6 +59,7 @@ public class PrintOption3 extends Activity {
         });
 
 
+        TextView txt_title = (TextView)findViewById(R.id.txt_prtop3_title);
 
         TextView txt_page2 = (TextView)findViewById(R.id.txt_page2);
         TextView txt_page4 = (TextView)findViewById(R.id.txt_page4);
@@ -62,6 +72,8 @@ public class PrintOption3 extends Activity {
         txt_page4.setTypeface(typeface);
         txt_page6.setTypeface(typeface);
 
+        txt_title.setText(filen);
+        txt_title.setTypeface(typeface);
 
 
         final ImageButton page2_1 = (ImageButton)findViewById(R.id.page2_1);
@@ -412,6 +424,8 @@ public class PrintOption3 extends Activity {
 
                     btn_next.setImageResource(R.drawable.page_next_checked);
                     Intent i = new Intent(PrintOption3.this, PrintOption4.class);
+                    i.putExtra("filen",filen);
+                    i.putExtra("subn",subn);
                     finish();
                     startActivity(i);
 

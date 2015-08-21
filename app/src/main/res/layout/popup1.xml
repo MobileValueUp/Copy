@@ -16,7 +16,7 @@
         android:id="@+id/txt_realprint"
         android:textSize="13sp"
         android:textColor="#000000"
-        android:text= "포인트가 차감됩니다.
+        android:text= "10포인트가 차감됩니다.
 정말로 인쇄하시겠습니까?"
         android:gravity="center_horizontal"
         android:layout_alignParentTop="true"

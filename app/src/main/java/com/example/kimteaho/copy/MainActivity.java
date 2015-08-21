@@ -26,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -54,8 +55,9 @@ public class MainActivity extends ActionBarActivity
     ImageView btn2;
     ImageView btn3;
 
+    UserInfoGlobal userInfoGlobal;
 
-    String usId="23";
+    //String usId="23";
 
 
     private static final String TAB1 = "tab1";
@@ -64,6 +66,12 @@ public class MainActivity extends ActionBarActivity
     private static final String TAB4 = "tab4";
     private static final String TAB5 = "tab5";
 
+
+    ImageButton mNavibutton;
+    ImageButton mNaviCharge;
+
+    TextView mNaviname;
+    TextView mNavipoint;
 
 
 
@@ -79,6 +87,18 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mNavibutton = (ImageButton)findViewById(R.id.imgbtn_side_recpt);
+        mNaviCharge = (ImageButton)findViewById(R.id.imgbtn_side_point);
+
+        mNaviname = (TextView)findViewById(R.id.txt_side_name);
+        mNavipoint = (TextView)findViewById(R.id.txt_side_point);
+
+        userInfoGlobal = (UserInfoGlobal)getApplication();
+        userInfoGlobal.setUsCd("23");
+        userInfoGlobal.setPoint("0");
+        userInfoGlobal.setName("test");
+
 
 
         btn1 = (ImageView)findViewById(R.id.imageView1);
@@ -113,6 +133,28 @@ public class MainActivity extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        mNaviname.setText("광운대학교" + " " +userInfoGlobal.getName());
+        mNavipoint.setText(userInfoGlobal.getPoint());
+
+
+        mNavibutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,ReceiptActivity.class);
+                startActivity(i);
+            }
+        });
+
+
+        mNaviCharge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this,PointChargeActivity.class);
+                startActivity(i);
+            }
+        });
+
 
         btn1.setImageResource(R.drawable.timetable_unclicked);
         btn2.setImageResource(R.drawable.paper_unclicked);

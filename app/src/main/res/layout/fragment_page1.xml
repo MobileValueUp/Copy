@@ -4,6 +4,7 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     android:paddingBottom="0dp"
+    android:background="#f7f6f3"
     tools:context=".Tab$PlaceholderFragment">
 
 

@@ -20,6 +20,9 @@ public class PrintOption1 extends Activity {
     boolean selected_setting = false;
     boolean selected_next = false;
     String filen;
+    String filecd;
+    String subn;
+
 
 
     @Override
@@ -29,6 +32,8 @@ public class PrintOption1 extends Activity {
 
         Intent intent = getIntent();
         filen = intent.getExtras().getString("filen");
+        filecd = intent.getExtras().getString("filecode");
+        subn = intent.getExtras().getString("subn");
 
         TextView txt_prtop1_title = (TextView)findViewById(R.id.txt_prtop1_title);
         txt_prtop1_title.setText(filen);
@@ -123,6 +128,8 @@ public class PrintOption1 extends Activity {
 
                     btn_next.setImageResource(R.drawable.page_next_checked);
                     Intent i = new Intent(PrintOption1.this, PrintOption2.class);
+                    i.putExtra("filen",filen);
+                    i.putExtra("subn",subn);
                     finish();
                     startActivity(i);
 

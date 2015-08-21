@@ -35,11 +35,18 @@ public class LoginActivity extends Activity {
     EditText edtPwd;
     String parId;
     String parPwd;
+    String name;
+
     private Net net;
+
+    UserInfoGlobal usinfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        usinfo = (UserInfoGlobal)getApplication();
+
 
         TextView txt_login= (TextView)findViewById(R.id.textId);
         TextView txt_pwd= (TextView)findViewById(R.id.textPwd);
@@ -177,9 +184,12 @@ public class LoginActivity extends Activity {
                         else if ( xpp.getName().equals("name"))
                         {
 
+
                         }
                         else if ( xpp.getName().equals("usCd"))
                         {
+
+                            usinfo.setUsCd(xpp.nextText());
 
                         }
                         else if( xpp.getName().equals("school"))
@@ -189,6 +199,7 @@ public class LoginActivity extends Activity {
                         else if ( xpp.getName().equals("point"))
                         {
 
+                            usinfo.setPoint(xpp.nextText());
                         }
 
                     }

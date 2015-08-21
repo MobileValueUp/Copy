@@ -29,7 +29,7 @@ public class FragmentTwo extends Fragment {
 
     private ListView  lec_list;
     private CustomAdapter adapter;
-    private String usCd = "23";
+    private String usCd;
     private ArrayList<String> arrayList_pron;
     private ArrayList<String> arrayList_subName;
     private ArrayList<String> arrayList_day1;
@@ -53,6 +53,10 @@ public class FragmentTwo extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         //강의안
+
+        UserInfoGlobal userInfoGlobal = (UserInfoGlobal)getActivity().getApplication();
+
+        usCd = userInfoGlobal.getUsCd();
 
         arrayList_pron = new ArrayList<String>();
         arrayList_subName = new ArrayList<String>();

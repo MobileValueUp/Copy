@@ -116,53 +116,33 @@
         android:layout_marginTop="18dp"
         android:layout_toEndOf="@+id/duetime1"
         android:layout_marginLeft="5dp"
- />
+        />
 
-// 수령확인절차
+    // 수령확인절차
+
+    <EditText
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:inputType="numberPassword"
+        android:ems="4"
+        android:id="@+id/input_receipt_Pwd"
+        android:background="@null"
+        android:textSize="35sp"
+        android:layout_marginBottom="15dp"
+        android:layout_alignBottom="@+id/bg_receipt"
+        android:layout_centerHorizontal="true" />
 
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/check1"
-        android:src="@drawable/code_unclicked"
+        android:id="@+id/check"
+        android:src="@drawable/button_confirm_unclicked"
         android:background="@null"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/bg_receipt"
-        android:layout_marginBottom="17dp"
-        android:layout_marginLeft="12dp"/>
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/check2"
-        android:src="@drawable/code_unclicked"
-        android:background="@null"
-        android:layout_marginRight="16.9dp"
-        android:layout_alignTop="@+id/check3"
-        android:layout_toStartOf="@+id/check3" />
-
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/check3"
-        android:src="@drawable/code_unclicked"
-        android:background="@null"
-        android:layout_marginRight="16.9dp"
-        android:layout_alignTop="@+id/check4"
-        android:layout_toStartOf="@+id/check4" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/check4"
-        android:src="@drawable/code_unclicked"
-        android:background="@null"
-        android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/bg_receipt"
-        android:layout_marginBottom="17dp"
-        android:layout_marginRight="12dp"/>
+        android:layout_marginRight="12dp"
+        android:layout_below="@+id/file_name1"
+        android:layout_marginTop="20dp"
+        android:layout_alignEnd="@+id/bg_receipt" />
 
 
 

@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 
 public class ReceiptCheck2Activity extends Activity {
-
 
 
     @Override
@@ -45,50 +45,29 @@ public class ReceiptCheck2Activity extends Activity {
             }
         });
 
-        final ImageButton btn_check1 = (ImageButton)findViewById(R.id.check1);
-        final ImageButton btn_check2 = (ImageButton)findViewById(R.id.check2);
-        final ImageButton btn_check3 = (ImageButton)findViewById(R.id.check3);
-        final ImageButton btn_check4 = (ImageButton)findViewById(R.id.check4);
 
-        btn_check1.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        final ImageButton btn_check = (ImageButton)findViewById(R.id.check);
+
+        btn_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_check1.setImageResource(R.drawable.code_clicked);
+                btn_check.setImageResource(R.drawable.button_confirm_clicked);
 
+                EditText edtPwd = (EditText)findViewById(R.id.input_receipt_Pwd);
+                Integer Rps = Integer.parseInt(edtPwd.getText().toString());
+
+                if (Rps == 1004) {
+
+                    Intent i = new Intent(ReceiptCheck2Activity.this, ReceiptCheck3Activity.class);
+                    finish();
+                    startActivity(i);
+                }
             }
         });
-
-        btn_check2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_check2.setImageResource(R.drawable.code_clicked);
-
-            }
-        });
-
-        btn_check3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_check3.setImageResource(R.drawable.code_clicked);
-
-            }
-        });
-
-        btn_check4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_check4.setImageResource(R.drawable.code_clicked);
-                Intent i = new Intent(ReceiptCheck2Activity.this, ReceiptCheck3Activity.class);
-                finish();
-                startActivity(i);
-
-
-            }
-        });
-
-
-
-
 
 
 

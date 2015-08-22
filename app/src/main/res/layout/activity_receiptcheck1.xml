@@ -59,7 +59,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/subject_name1"
-        android:text="경제경영수학"
         android:textSize="12sp"
         android:textColor="#FF863E"
         android:layout_alignTop="@+id/bg_receipt"
@@ -73,7 +72,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/file_name1"
-        android:text="Ch.8 Linear Algebra.hwp"
         android:textSize="14sp"
         android:textColor="#A09F9F"
         android:layout_below="@+id/subject_name1"
@@ -95,7 +93,7 @@
 
     //시간아이콘
 
-    <ImageView
+   <!-- <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/duetime1"
@@ -117,7 +115,7 @@
         android:layout_marginTop="78dp"
         android:layout_toEndOf="@+id/duetime1"
         android:layout_marginLeft="5dp"
- />
+ />-->
 
 
     //수령확인버튼

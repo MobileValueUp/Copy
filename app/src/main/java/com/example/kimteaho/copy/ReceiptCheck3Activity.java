@@ -3,20 +3,37 @@ package com.example.kimteaho.copy;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+
 
 public class ReceiptCheck3Activity extends Activity {
 
+    String id;
+
+    Net net;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiptcheck3);
+
+        Intent intent = getIntent();
+
+        id = intent.getExtras().getString("id");
+        net = new Net();
 
         TextView txt_title_name = (TextView)findViewById(R.id.txt_title_name);
         TextView subject_name = (TextView)findViewById(R.id.subject_name);
@@ -54,6 +71,7 @@ public class ReceiptCheck3Activity extends Activity {
             public void onClick(View v) {
                 btn_check.setImageResource(R.drawable.button_done_clicked);
                 Intent i = new Intent(ReceiptCheck3Activity.this, ReceiptActivity.class);
+                net.execute();
                 finish();
                 startActivity(i);
 
@@ -92,4 +110,43 @@ public class ReceiptCheck3Activity extends Activity {
     }
 
 */
+
+
+    public class Net extends AsyncTask<String,Void,String> {
+        protected Net() {
+        }
+
+        protected void onPreExecute() {
+        }
+
+        protected String doInBackground(String... arg0) {
+            try {
+
+                String link = "http://52.68.141.174/php/Receiptconfirm.php?id=";
+                link += id;
+
+
+                //String link = "http://52.68.141.174/php/test.php";
+
+                URL url = new URL(link);
+                url.openStream();
+
+            } catch (Exception e) {
+                return new String("Exception:" + e.getMessage());
+            }
+
+
+
+
+            return null;
+        }
+
+        protected void onPostExecute(String str) {
+
+
+
+        }
+
+
+    }
 }

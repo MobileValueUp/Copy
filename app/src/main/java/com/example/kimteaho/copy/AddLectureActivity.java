@@ -1,6 +1,7 @@
 package com.example.kimteaho.copy;
 
 //import android.app.ActionBar;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
@@ -37,6 +38,7 @@ public class AddLectureActivity extends ActionBarActivity {
     String radio_result="subjectn";
     String input;
     String urlttcode;
+    UserInfoGlobal userInfoGlobal;
 
     ListView listView_addLecture;
     CustomAdapterAdd customAdapterAdd;
@@ -55,6 +57,8 @@ public class AddLectureActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_lecture);
 
+        userInfoGlobal = (UserInfoGlobal)getApplication();
+
         final ActionBar actionBar = getSupportActionBar();
 
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -66,7 +70,7 @@ public class AddLectureActivity extends ActionBarActivity {
         actionBar.setCustomView(R.layout.actionbar_layout);
         //actionBar.setLogo(R.drawable.btnback);
         TextView txt_addlec_title = (TextView)findViewById(R.id.txt_actionbar);
-        txt_addlec_title.setText("강의 추");
+        txt_addlec_title.setText("강의 추가");
 
 
       /*  RadioGroup radioGroup_schop = (RadioGroup)findViewById(R.id.rdg_add_lecture_1);
@@ -110,6 +114,7 @@ public class AddLectureActivity extends ActionBarActivity {
             public void onClick(View v) {
                 input = edt_input.getText().toString();
 
+                customAdapterAdd.clearAll();
                 arrayList_pron.clear();
                 arrayList_subc.clear();
                 arrayList_subName.clear();
@@ -163,10 +168,11 @@ public class AddLectureActivity extends ActionBarActivity {
             {
                 if(temp.get(i))
                 {
+                    //Toast.makeText(getApplicationContext(),userInfoGlobal.getUsCd(),Toast.LENGTH_SHORT).show();
                     urlttcode = arrayList_ttcode.get(i);
-                    Toast.makeText(getApplicationContext(),arrayList_ttcode.get(i),Toast.LENGTH_SHORT).show();
                     Net2 net2 = new Net2();
                     net2.execute();
+
                 }
             }
 
@@ -193,8 +199,8 @@ public class AddLectureActivity extends ActionBarActivity {
             try {
 
                 String link = "http://52.68.141.174/php/searchlecture.php?usCd=";
-                link += "23&";
-                link +="cond=" + radio_result;
+                link += userInfoGlobal.getUsCd();
+                link +="&cond=" + radio_result;
                 link += "&input=";
                 link += URLEncoder.encode(input,"UTF-8");
 
@@ -346,8 +352,8 @@ public class AddLectureActivity extends ActionBarActivity {
             try {
 
                 String link = "http://52.68.141.174/php/addlecture.php?usCd=";
-                link += "23&";
-                link +="ttcode=" + urlttcode;
+                link += userInfoGlobal.getUsCd();
+                link +="&ttcode=" + urlttcode;
 
 
 
@@ -370,6 +376,9 @@ public class AddLectureActivity extends ActionBarActivity {
         {
 
 
+            Intent i = new Intent(AddLectureActivity.this,MainActivity.class);
+
+            startActivity(i);
 
 
         }

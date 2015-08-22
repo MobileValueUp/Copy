@@ -11,18 +11,30 @@ import android.widget.TextView;
 
 public class ReceiptCheck1Activity extends Activity {
 
+    String filen;
+    String subn;
+    String id;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_receiptcheck1);
+
+
+        Intent intent = getIntent();
+
+        filen = intent.getExtras().getString("filen");
+        subn = intent.getExtras().getString("subn");
+        id = intent.getExtras().getString("id");
 
         TextView txt_title_name = (TextView)findViewById(R.id.txt_title_name);
         TextView subject_name1 = (TextView)findViewById(R.id.subject_name1);
         TextView file_name1 = (TextView)findViewById(R.id.file_name1);
         TextView print_info1 = (TextView)findViewById(R.id.print_info1);
-        TextView txt_due_time1 = (TextView)findViewById(R.id.txt_due_time1);
+
 
         Typeface typeface = Typeface.createFromAsset(getAssets(),"NanumBarunGothic.ttf");
 
@@ -30,8 +42,9 @@ public class ReceiptCheck1Activity extends Activity {
         subject_name1.setTypeface(typeface);
         file_name1.setTypeface(typeface);
         print_info1.setTypeface(typeface);
-        txt_due_time1.setTypeface(typeface);
 
+        subject_name1.setText(subn);
+        file_name1.setText(filen);
 
         final ImageButton btn_back = (ImageButton)findViewById(R.id.btnBackSign);
 
@@ -57,6 +70,7 @@ public class ReceiptCheck1Activity extends Activity {
 
                 btn_check_receipt.setImageResource(R.drawable.button_confirm_clicked);
                 Intent i = new Intent(ReceiptCheck1Activity.this, ReceiptCheck2Activity.class);
+                i.putExtra("id",id);
                 finish();
                 startActivity(i);
 

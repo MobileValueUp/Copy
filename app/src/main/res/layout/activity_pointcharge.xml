@@ -55,13 +55,12 @@
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txt_curpoint"
         android:layout_alignTop="@+id/pointbg"
         android:layout_marginTop="26dp"
-        android:layout_alignLeft="@+id/pointbg"
-        android:layout_marginLeft="140dp"
+        android:gravity="center"
         android:textSize="18sp"
         android:textColor="#FF863e"/>
 

@@ -12,11 +12,16 @@ import android.widget.TextView;
 
 public class ReceiptCheck2Activity extends Activity {
 
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiptcheck2);
+
+        Intent intent = getIntent();
+
+        id = intent.getExtras().getString("id");
 
         TextView txt_title_name = (TextView)findViewById(R.id.txt_title_name);
         TextView subject_name1 = (TextView)findViewById(R.id.subject_name1);
@@ -63,6 +68,7 @@ public class ReceiptCheck2Activity extends Activity {
                 if (Rps == 1004) {
 
                     Intent i = new Intent(ReceiptCheck2Activity.this, ReceiptCheck3Activity.class);
+                    i.putExtra("id",id);
                     finish();
                     startActivity(i);
                 }

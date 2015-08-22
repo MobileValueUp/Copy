@@ -146,8 +146,8 @@ public class UploadActivity extends Activity {
                     //String A = getAbsolutePathFromUri(data.getData().getEncodedPath(),Uri.parse(FilePath));
                     //String B = A.getPath();
 
-                    in.setText(uri.toString());
-                    out.setText(Filename);
+                    /*in.setText(uri.toString());
+                    out.setText(Filename);*/
 
                     //Toast.makeText(getApplication(),Filename,Toast.LENGTH_SHORT).show();
 

@@ -95,18 +95,20 @@ public class MainActivity extends ActionBarActivity
         mNavipoint = (TextView)findViewById(R.id.txt_side_point);
 
         userInfoGlobal = (UserInfoGlobal)getApplication();
-        userInfoGlobal.setUsCd("23");
+       /* userInfoGlobal.setUsCd("23");
         userInfoGlobal.setPoint("0");
         userInfoGlobal.setName("test");
-
+*/
 
 
         btn1 = (ImageView)findViewById(R.id.imageView1);
         btn2 = (ImageView)findViewById(R.id.imageView2);
         btn3 = (ImageView)findViewById(R.id.imageView3);
 
-        /*Intent intentLoginActivity = new Intent(MainActivity.this,LoginActivity.class);
-        startActivity(intentLoginActivity);*/
+        if(!userInfoGlobal.isIslogin()) {
+            Intent intentLoginActivity = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intentLoginActivity);
+        }
 
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);

@@ -108,7 +108,7 @@ public class CustomAdapterAdd extends BaseAdapter {
 
             ImageButton imgBtn_addlecture_add = (ImageButton)convertView.findViewById(R.id.imgbtn_addLecture_input);
 
-            imgBtn_addlecture_add.setOnClickListener(new View.OnClickListener() {
+           imgBtn_addlecture_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 

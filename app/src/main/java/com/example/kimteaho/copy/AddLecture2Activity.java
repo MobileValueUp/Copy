@@ -1,6 +1,7 @@
 package com.example.kimteaho.copy;
 
 //import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
@@ -49,8 +50,10 @@ public class AddLecture2Activity extends ActionBarActivity {
     String pos1;
     String pos2;
     String signOk="no";
-    String usCd = "23";
+    String usCd;
     String school = "광운대학교";
+
+    UserInfoGlobal userInfoGlobal;
 
     String[] mWeekTitleIds ={
             "",
@@ -67,7 +70,11 @@ public class AddLecture2Activity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_lecture2);
 
+        userInfoGlobal = (UserInfoGlobal) getApplication();
+
+        usCd = userInfoGlobal.getUsCd();
         ActionBar actionBar = getSupportActionBar();
+
 
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
@@ -321,7 +328,8 @@ public class AddLecture2Activity extends ActionBarActivity {
         {
             if( signOk.equals("ok"))
             {
-                Toast.makeText(getApplicationContext(), "add success", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(AddLecture2Activity.this, MainActivity.class);
+                startActivity(i);
             }
             else
             {

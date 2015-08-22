@@ -33,6 +33,7 @@ public class ReceiptActivity extends Activity {
     ArrayList<String> arrayList_filen;
     ArrayList<String> arrayList_ispaid;
     ArrayList<String> arrayList_subn;
+    ArrayList<String> arrayList_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +45,7 @@ public class ReceiptActivity extends Activity {
         arrayList_filen = new ArrayList<String>();
         arrayList_ispaid = new ArrayList<String>();
         arrayList_subn = new ArrayList<String>();
+        arrayList_id = new ArrayList<String>();
 
 
         rept_list = (ListView)findViewById(R.id.list_receipt);
@@ -155,7 +157,7 @@ public class ReceiptActivity extends Activity {
 
             for (int i = 0; i < arrayList_filen.size(); i++) {
 
-                adapterR.add(arrayList_filen.get(i), arrayList_subn.get(i),arrayList_ispaid.get(i));
+                adapterR.add(arrayList_filen.get(i), arrayList_subn.get(i),arrayList_ispaid.get(i),arrayList_id.get(i));
 
 
             }
@@ -196,6 +198,8 @@ public class ReceiptActivity extends Activity {
                                 tagId = 2;
                             else if ( tag.equals("subn"))
                                 tagId = 3;
+                            else if(tag.equals("id"))
+                                tagId = 4;
                             break;
                         case XmlPullParser.END_TAG:
                             break;
@@ -207,6 +211,8 @@ public class ReceiptActivity extends Activity {
                             }
                             else if ( tagId == 3)
                                 arrayList_subn.add(xpp.getText());
+                            else if( tagId ==4)
+                                arrayList_id.add(xpp.getText());
                             tagId = 0;
                             break;
                     }

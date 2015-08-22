@@ -19,11 +19,13 @@ public class CustomAdapterReciept extends BaseAdapter {
     private ArrayList<String> m_List_name;
     private ArrayList<String> arrayList_subn;
     private ArrayList<String> arrayList_ispaid;
+    private ArrayList<String> arrayList_id;
 
     public CustomAdapterReciept(){
         m_List_name = new ArrayList<String>();
         arrayList_subn = new ArrayList<String>();
         arrayList_ispaid = new ArrayList<String>();
+        arrayList_id = new ArrayList<String>();
     }
 
     @Override
@@ -73,6 +75,7 @@ public class CustomAdapterReciept extends BaseAdapter {
                     Intent i = new Intent(context,ReceiptCheck1Activity.class);
                     i.putExtra("filen",m_List_name.get(pos));
                     i.putExtra("subn",arrayList_subn.get(pos));
+                    i.putExtra("id",arrayList_id.get(pos));
                     context.startActivity(i);
                 }
             });
@@ -81,10 +84,11 @@ public class CustomAdapterReciept extends BaseAdapter {
         return convertView;
     }
 
-    public void add(String msg, String sn,String pay){
+    public void add(String msg, String sn,String pay, String id){
         m_List_name.add(msg);
         arrayList_subn.add(sn);
         arrayList_ispaid.add(pay);
+        arrayList_id.add(id);
 
     }
 

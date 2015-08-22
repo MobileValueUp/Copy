@@ -10,7 +10,15 @@ public class UserInfoGlobal extends Application {
     private String usCd;
     private String point;
     private String name;
+    private boolean islogin=false;
 
+    public void setAll()
+    {
+        usCd ="";
+        point="";
+        name="";
+
+    }
 
     public String getUsCd()
     {
@@ -25,6 +33,16 @@ public class UserInfoGlobal extends Application {
     public String getName()
     {
         return name;
+    }
+
+    public boolean isIslogin()
+    {
+        return islogin;
+    }
+
+    public void setLogin(boolean uname)
+    {
+        islogin = uname;
     }
 
     public void setName(String uname)

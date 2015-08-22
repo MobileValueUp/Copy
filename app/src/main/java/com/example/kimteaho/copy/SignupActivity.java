@@ -222,6 +222,7 @@ public class SignupActivity extends Activity {
             if( signOk.equals("ok"))
             {
                 Toast.makeText(getApplicationContext(), "sign up success", Toast.LENGTH_SHORT).show();
+                finish();
             }
             else
             {

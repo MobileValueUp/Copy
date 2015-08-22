@@ -47,6 +47,7 @@ public class LoginActivity extends Activity {
 
         usinfo = (UserInfoGlobal)getApplication();
 
+        usinfo.setAll();
 
         TextView txt_login= (TextView)findViewById(R.id.textId);
         TextView txt_pwd= (TextView)findViewById(R.id.textPwd);
@@ -147,6 +148,7 @@ public class LoginActivity extends Activity {
         {
             if( parId.equals("ok"))
             {
+                usinfo.setLogin(true);
                 finish();
             }
             else
@@ -184,16 +186,13 @@ public class LoginActivity extends Activity {
                         else if ( xpp.getName().equals("name"))
                         {
 
+                            usinfo.setName(xpp.nextText());
 
                         }
                         else if ( xpp.getName().equals("usCd"))
                         {
 
                             usinfo.setUsCd(xpp.nextText());
-
-                        }
-                        else if( xpp.getName().equals("school"))
-                        {
 
                         }
                         else if ( xpp.getName().equals("point"))
